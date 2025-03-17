@@ -1,0 +1,107 @@
+:root {
+    --page-padding: 20px;
+    --grid-gap: 20px;
+    --zone-padding: 20px;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --page-padding: 20px;
+        --grid-gap: 25px;
+    }
+}
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@media (max-width: 750px) {
+    :root {
+        --page-padding: 15px;
+        --grid-gap: 15px;
+    }
+}
+
+body {
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    font-family: "Ubuntu", sans-serif;
+}
+
+header {
+    background-color: #dbeafe;
+    border-bottom: 2px solid #3b82f6;
+    box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+}
+
+#grid_pag {
+    display: grid;
+    gap: var(--grid-gap);
+    background-color: #f1f5f9;
+    border: 1px solid #3b82f6;
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.1);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+}
+
+footer {
+    background-color: #eff6ff;
+    border-top: 2px solid #3b82f6;
+    box-shadow: 0 -2px 4px rgba(30, 64, 175, 0.2);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+}
+
+#gallery img,
+#services embed,
+/* footer iframe {
+    width: 100%;
+    max-width: 800px;
+    min-width: 200px;
+    height: auto;
+} */
+iframe {
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 2px solid #c2a676; 
+}
+
+main img[src="./resurse/imagini/2v2.png"] {
+    width: 100%;
+    max-width: 1155px;
+    min-width: 300px;
+    height: auto;
+}
+
+
+
+@media (max-width: 1200px) {
+    #gallery img,
+    #services embed,
+    footer iframe {
+        max-width: 600px;
+        min-width: 150px;
+    }
+    main img[src="./resurse/imagini/2v2.png"] {
+        max-width: 800px;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 750px) {
+    #gallery img,
+    #services embed,
+    footer iframe {
+        max-width: 400px;
+        min-width: 100px;
+    }
+    main img[src="./resurse/imagini/2v2.png"] {
+        max-width: 500px;
+        min-width: 400px;
+        height: auto;
+    }
+}

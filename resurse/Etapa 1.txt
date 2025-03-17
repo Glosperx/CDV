@@ -3,36 +3,36 @@ Etapa 1
 1.0
 2.4-9
 3.0
-4.22 header,53 main,293 footer
+4.22 header,53 main,310 footer
 5.157 section
 6.24
 7.p-161,ol-190,ul-27,blockquote-89,dl-146
-8.174
+8.193
 9.
 10.
 	a.57
 	b.78
 	c.58
-	d.162
+	d.181
 	e.121
 	f.108
-	g.143
-	h.251
+	g.162
+	h.268
 11.
-	a.114
-	b.294
-	c.206
-	d.289
-12.229
+	a.133
+	b.311
+	c.225
+	d.306
+12.249
 13.
-	a.301
-	b.303
-	c.311
-	d.313
-14.320
+	a.318
+	b.320
+	c.328
+	d.330
+14.337
 15.
 
 (Bonus)MathML-79
-(Bonus)pdf-199
-(Bonus)harta-217
-(Bonus)adresa_fac-305
+(Bonus)pdf-218
+(Bonus)harta-236
+(Bonus)adresa_fac-320

@@ -13,7 +13,11 @@
     <link rel="shortcut icon" href="resurse/ico/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="resurse/ico/favicon/apple-touch-icon.png">
     <link rel="manifest" href="resurse/ico/favicon/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="resurse\css\general.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     
 </head>
 <body>
@@ -51,7 +55,7 @@
 
 
 <main>
-
+    <div id="grid_pag">
     <section id="introduction">
         <h2>Solutii personalizate pentru materialele publicitare</h2>
         <p>CDV oferă soluții complete pentru crearea și producția materialelor publicitare personalizate, de la <b>design</b> la livrare.</p>
@@ -80,10 +84,29 @@
                     <mtext>Grosimea hârtiei poate ajunge până la</mtext>
                     <mspace width="0.1em"/>
                     <mn>400</mn>
-                    <mtext>&nbsp;g/m²</mtext>
+                    <mtext>&nbsp;g/m², ceea ce corespunde unei grosimi aproximative de</mtext>
                     <mspace width="0.2em"/>
-                    <mtext>pentru tipărirea de materiale de calitate superioară. Aceasta reprezintă o densitate mare, care se poate utiliza pentru produsele tipărite care necesită o rezistență suplimentară la uzură.</mtext>
+                    <mfrac>
+                        <mn>400</mn>
+                        <mrow>
+                            <mn>1.2</mn>
+                            <mo>&times;</mo>
+                            <msup>
+                                <mn>10</mn>
+                                <mn>4</mn>
+                            </msup>
+                        </mrow>
+                    </mfrac>
+                    <mo>&#x2248;</mo>
+                    <mn>33.33</mn>
+                    <mtext> µm (pentru hârtie cu densitatea 1.2 g/cm³).</mtext>
+                    <mspace width="0.2em"/>
+                    <mtext>În cazul unei densități de 0.8 g/cm³, grosimea ar fi aproximativ</mtext>
+                    <mspace width="0.1em"/>
+                    <mn>50</mn>
+                    <mtext> µm.</mtext>
                 </math>
+                
 
                 Folosim <b>tipărire</b> sustenabilă: 
                 <blockquote>
@@ -203,10 +226,10 @@
 </section>
 
 <section>
-    <a href="https://www.youtube.com/watch?v=ZfZ6Sae-Eno" target="videoFrame">Cum se tipareste o carte </a> |
-    <a href="https://www.youtube.com/watch?v=IHOHSKNqmZ4" target="videoFrame">Prezentare Tipografie</a>
+    <a href="https://www.youtube.com/embed/ZfZ6Sae-Eno?si=NK-f-VSThPoI1ZUe" target="videoFrame">Cum se tipareste o carte </a> |
+    <a href="https://www.youtube.com/embed/IHOHSKNqmZ4?si=2jHoRwki2FsB2Gw-" target="videoFrame">Prezentare Tipografie</a>
     <br><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZfZ6Sae-Eno?si=kdhh3n7FWZXhR2r8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe name ="videoFrame" width="560" height="315" src="https://www.youtube.com/embed/ZfZ6Sae-Eno?si=kdhh3n7FWZXhR2r8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </section>
 
 <section>
@@ -222,8 +245,6 @@
         <area shape="circle" coords="200,1200,150" alt="Zona 3" href="https://premierhospitality.ro/" target="_blank">
     </map>
 </section>
-
-
 
 
 <section>
@@ -288,7 +309,7 @@
 <section>
     <a href="./Resurse/Etapa_0.pdf" download>Descarcă PDF</a>
 </section>
-
+</div>
 </main>
 <footer>
     <p><a href="#">Acasa</a></p>
