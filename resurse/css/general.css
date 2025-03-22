@@ -10,11 +10,6 @@
         --grid-gap: 25px;
     }
 }
-.ubuntu-regular {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
 
 @media (max-width: 750px) {
     :root {
@@ -24,6 +19,15 @@
 }
 
 body {
+    --color-primary: #5997D9;
+    --color-hover: #3973A8;
+    --color-text: #374957;
+    --color-background: #F8F9FA;
+    --color-secondary: #EAEFF5;
+    --color-highlight: #AACFF5;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
     font-family: "Ubuntu", sans-serif;
@@ -35,19 +39,162 @@ header {
     box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
     border-radius: 10px;
     padding: var(--zone-padding);
+    grid-area: header;
+}
+
+/* Stilizare meniu */
+header h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--color-hover);
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    list-style: none;
+    border-radius: 5px;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    margin: 5px 0;
 }
 
 #grid_pag {
     display: grid;
-    gap: var(--grid-gap);
+    grid-template-columns: 30% 20% 20% 30%;
+    grid-template-areas:
+        "header header header header"
+        "prezentare prezentare prezentare prezentare"
+        "about motivatie motivatie gallery"
+        "videos motivatie motivatie gallery"
+        "videos scop services services"
+        "map map map map"
+        "faq faq faq faq"
+        "download download download download"
+        "footer footer footer footer";
+    gap: 5px;
     background-color: #f1f5f9;
     border: 1px solid #3b82f6;
     box-shadow: 0 2px 6px rgba(30, 64, 175, 0.1);
     border-radius: 10px;
     padding: var(--zone-padding);
+    min-height: 100vh;
+}
+
+#prezentare {
+    grid-area: prezentare;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#about {
+    grid-area: about;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#motivatie {
+    grid-area: motivatie;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#gallery {
+    grid-area: gallery;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#videos {
+    grid-area: videos;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#scop {
+    grid-area: scop;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#services {
+    grid-area: services;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+    grid-area: map;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#faq {
+    grid-area: faq;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#download {
+    grid-area: download;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 footer {
+    grid-area: footer;
     background-color: #eff6ff;
     border-top: 2px solid #3b82f6;
     box-shadow: 0 -2px 4px rgba(30, 64, 175, 0.2);
@@ -57,17 +204,18 @@ footer {
 
 #gallery img,
 #services embed,
-/* footer iframe {
+iframe {
     width: 100%;
     max-width: 800px;
     min-width: 200px;
     height: auto;
-} */
+}
+
 iframe {
     display: block;
     margin: 20px auto;
     border-radius: 8px;
-    border: 2px solid #c2a676; 
+    border: 2px solid #c2a676;
 }
 
 main img[src="./resurse/imagini/2v2.png"] {
@@ -76,8 +224,6 @@ main img[src="./resurse/imagini/2v2.png"] {
     min-width: 300px;
     height: auto;
 }
-
-
 
 @media (max-width: 1200px) {
     #gallery img,
@@ -103,5 +249,33 @@ main img[src="./resurse/imagini/2v2.png"] {
         max-width: 500px;
         min-width: 400px;
         height: auto;
+    }
+
+    #grid_pag {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "prezentare"
+            "about"
+            "videos"
+            "motivatie"
+            "gallery"
+            "scop"
+            "services"
+            "map"
+            "faq"
+            "download"
+            "footer";
+        gap: 5px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li ul {
+        position: static;
+        box-shadow: none;
     }
 }
