@@ -343,6 +343,9 @@ iframe {
 }
 
 .taburi-iframe a {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
     text-decoration: none;
     background-color: var(--color-secondary);
     color: var(--color-highlight);
