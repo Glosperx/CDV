@@ -15,12 +15,15 @@
     <link rel="manifest" href="resurse/ico/favicon/site.webmanifest">
     <link rel="stylesheet" href="resurse\css\general.css">
     
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     
 </head>
 <body>
+
 
 
 <header>
@@ -208,8 +211,9 @@
 
 <section id="services">
 <h2>
-    Servicii
+    Servicii <i class="fa-solid fa-print"></i>
 </h2>
+
 <ol>
     <li><b>Reviste</b></li>
     <li><b>Broșuri</b></li>
@@ -226,10 +230,14 @@
 </section>
 
 <section id="videos">
+    <div class="container-iframe">
+        <div class="taburi-iframe">
     <a href="https://www.youtube.com/embed/ZfZ6Sae-Eno?si=NK-f-VSThPoI1ZUe" target="videoFrame">Cum se tipareste o carte </a> |
     <a href="https://www.youtube.com/embed/IHOHSKNqmZ4?si=2jHoRwki2FsB2Gw-" target="videoFrame">Prezentare Tipografie</a>
+</div>
     <br><br>
     <iframe name ="videoFrame" width="560" height="315" src="https://www.youtube.com/embed/ZfZ6Sae-Eno?si=kdhh3n7FWZXhR2r8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
 </section>
 
 <section id ="map">
@@ -309,10 +317,71 @@
 <section id="download">
     <a href="./Resurse/Etapa_0.pdf" download>Descarcă PDF</a>
 </section>
+
+<section id="tabel">
+    <div class="table-wrapper">
+        <table>
+            <caption>Oferte speciale la materiale publicitare</caption>
+            <thead>
+                <tr>
+                    <th>Tip produs</th>
+                    <th>Preț inițial (lei)</th>
+                    <th>Reducere (%)</th>
+                    <th>Preț final (lei)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pachet promoțional (Broșuri + Flyere)</td>
+                    <td>450</td>
+                    <td>15%</td>
+                    <td>382</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Set pixuri personalizate</td>
+                    <td>350 (500 buc.)</td>
+                    <td>10%</td>
+                    <td>315</td>
+                </tr>
+                <tr>
+                    <td>650 (1000 buc.)</td>
+                    <td>15%</td>
+                    <td>552.5</td>
+                </tr>
+                <tr>
+                    <td>Roll-up 85x200 cm</td>
+                    <td>300</td>
+                    <td>10%</td>
+                    <td>270</td>
+                </tr>
+                <tr>
+                    <td>Banner PVC 2x1m</td>
+                    <td>180</td>
+                    <td>5%</td>
+                    <td>171</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">* Ofertele sunt valabile până la sfârșitul lunii.</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
 </div>
+
 </main>
 <footer>
-    <p><a href="#">Acasa</a></p>
+    <!-- <p><a href="#">
+        <div id="link-top">
+            <div class="triunghi"></div>
+            <div class="sageata">&#8593;</div> 
+        </div>
+    </a></p> -->
+
+    <a href="#" id="link-top"><div id="border"></div></a>
 
     <address id ="contact">
         <p>
