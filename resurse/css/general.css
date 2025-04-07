@@ -470,7 +470,9 @@ math {
     font-family: "Ubuntu", sans-serif;
     font-size: 1.1em;
     display: inline-block;
+    white-space: nowrap;
 }
+
 
 mtext {
     color: var(--color-text);
@@ -492,6 +494,7 @@ mfrac {
     padding: 2px;
     border: 1px solid var(--color-primary);
     border-radius: 3px;
+    
 }
 
 msup {
@@ -499,6 +502,7 @@ msup {
     background-color: var(--color-background);
     padding: 2px 4px;
     border-radius: 2px;
+    display: inline;
 }
 
 mspace {
