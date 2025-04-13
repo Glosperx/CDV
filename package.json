@@ -1,0 +1,30 @@
+{
+  "name": "cdv",
+  "version": "1.0.0",
+  "description": "Design si Productie Publicitara",
+  "keywords": [
+    "materiale",
+    "publicitare",
+    "tipografie",
+    "tiparire"
+  ],
+  "homepage": "https://github.com/Glosperx/CDV#readme",
+  "bugs": {
+    "url": "https://github.com/Glosperx/CDV/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glosperx/CDV.git"
+  },
+  "license": "ISC",
+  "author": "Alexandru Cojoaca",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

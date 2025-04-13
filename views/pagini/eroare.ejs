@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html lang="ro">
+    <head>
+        <title>CDV | Design & Productie Publicitara</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+        <meta name="keywords" content="materiale publicitare, tiparire, bannere, roll-up-uri, brosuri, brosuri personalizate, design, comenzi personalizate de publicitate, produse pentru evenimente"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="CDV este solutia completa pentru publicitate si comunicare, oferind servicii profesionale de creatie grafica, productie și print personalizat.">
+        <meta name="author" content="CDV"><!-- autorul/autoarea paginii--> 
+        <link rel="stylesheet" type="text/css" href="/resurse/css/eroare.css"
+        
+        <%- include ("../fragmente/head.ejs")%>
+    </head>
+    <body>
+        <%- include ("../fragmente/header.ejs")%>
+        
+        <main>
+            <div id="err-coloane">
+                <div id="err-imag">
+                    <img src="<%- locals.imagine %>" />
+                </div>
+                <section>
+                    <h2><%- locals.titlu %></h2>
+                    <p><%- locals.text %></p>
+                </section>
+            </div>
+        </main>
+
+    <%- include ("../fragmente/footer.ejs")%>
+
+</body>
+</html>

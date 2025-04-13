@@ -13,7 +13,11 @@
     <link rel="shortcut icon" href="resurse/ico/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="resurse/ico/favicon/apple-touch-icon.png">
     <link rel="manifest" href="resurse/ico/favicon/site.webmanifest">
-    <link rel="stylesheet" href="resurse\css\general.css">
+    <link rel="stylesheet" href="resurse/css/general.css">
+    <link rel="stylesheet" href="resurse/css/nav.css">
+    <link rel="stylesheet" href="resurse/css/nav700.css">
+    <link rel="stylesheet" href="resurse/css/nav.scss">
+    <link rel="stylesheet" href="resurse/css/print.css">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
@@ -28,33 +32,42 @@
 
 <header>
     <h1>CDV | Design & Producție Publicitară</h1>
-    <nav>
-        <ul>
-            <li><a href="#">Acasa</a>
-                <ul>
-                    <li><a href="#prezentare">Prezentare generală</a></li>
-                    <li><a href="#motivatie">Ce ne diferențiază</a></li>
-                </ul>
-            </li>
-            <li><a href="#about">Despre Noi</a>
-                <ul>
-                    <li><a href="#scop">Scopul agenției</a></li>
-                </ul>
-            </li>
-            <li><a href="#contact">Contact</a>
-            </li>
-            <li><a href="#gallery">Portofoliu</a>
-            </li>
-            <li><a href="#services">Servicii</a>
-                <!-- <ul>
-                    <li><a href="#brosuri">Broșuri</a></li>
-                    <li><a href="#cataloage">Cataloage</a></li>
-                    <li><a href="#alte-oferta">Alte oferte</a></li>
-                </ul> -->
-            </li>
-        </ul>
-    </nav>
-</header>
+
+                <input type="checkbox" id="menu-toggle" style="display: none;">
+                <label class="hamburger" for="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <nav>
+                    <ul class="main-menu">
+                        <li class="home-btn"><a href="#"><span>Acasă</span></a>
+                            <ul class="submenu">
+                                <li><a href="#prezentare">Prezentare generală</a></li>
+                                <li><a href="#motivatie">Ce ne diferențiază</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#about">Despre Noi</a>
+                            <ul class="submenu">
+                                <li><a href="#scop">Scopul agenției</a></li>
+                                <li><a href="#about#experienta">Experiență</a></li>
+                                <li><a href="#about#calitate">Calitate</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#services">Servicii</a>
+                            <ul class="submenu">
+                                <li><a href="/brosuri">Broșuri</a></li>
+                                <li><a href="/cataloage">Cataloage</a></li>
+                                <li><a href="/roll-up-uri">Roll-up-uri</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#gallery">Portofoliu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+
 
 
 <main>
@@ -86,9 +99,9 @@
 
             <li>
                 La <strong>CDV </strong>tipărim pe <i>mașini Heidelberg</i> <i>CD 72 x 102</i> și utilizăm echipamente digitale <i>Konica Minolta</i> de ultimă generație, care permit printarea chiar și în format <i>33 x 70 cm</i>. De asemenea, grosimea hârtiei folosite poate ajunge până la 
-                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                <math xmlns="http://www.w3.org/1998/Math/MathML" >
                     <mtext>Grosimea hârtiei poate ajunge până la</mtext>
-                    <mspace width="0.1em"/>
+                    <!-- <mspace width="0.1em"/> -->
                     <mn>400</mn>
                     <mtext>&nbsp;g/m², ceea ce corespunde unei grosimi aproximative de</mtext>
                     <mspace width="0.2em"/>
