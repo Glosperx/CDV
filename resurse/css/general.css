@@ -53,6 +53,8 @@ body {
     --color-background: #F8F9FA;
     --color-secondary: #EAEFF5;
     --color-highlight: #AACFF5;
+    --visited-color: #6b21a8;
+    --highlight-color: #AACFF5;
     background-color: var(--color-background);
     color: var(--color-text);
     padding-left: var(--page-padding);
@@ -508,3 +510,53 @@ msup {
 mspace {
     display: inline-block;
 }
+
+a:visited {
+    color: var(--visited-color);
+}
+
+a[href^="http"]::before {
+    content: "⮳";
+    font-size: 1.5em;
+    margin-right: 0.2em;
+}
+
+a[href^="http"]:hover::before {
+    color: var(--color-hover);
+}
+
+main a {
+    position: relative;
+    text-decoration: none;
+    background-image: radial-gradient(
+        circle,
+        var(--highlight-color) 0%,
+        var(--highlight-color) 40%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-position: center;
+    background-size: 0% 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+}
+
+main a:hover {
+    background-size: 100% 100%;
+}
+
+#video-vtt {
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  video::cue {
+    background-color: rgba(0, 0, 0, 0.75); 
+    color: white;                         
+    text-align: left;                     
+    font-size: 1rem;
+  }

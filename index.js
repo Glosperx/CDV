@@ -1,8 +1,14 @@
 const express= require("express");
 const path= require("path");
 const fs = require("fs");
+const pg= require("pg");
 
 app= express();
+
+v=[10,27,23,44,15]
+
+nrImpar=v.find(function(elem){return elem % 100 == 1})
+console.log(nrImpar)
 
 console.log("Folderul proiectului:",__dirname);
 console.log("Calea fisierului:",__filename);
@@ -10,24 +16,10 @@ console.log("Folderul curent de lucru:",process.cwd());
 
 app.set("view engine", "ejs");
 
-
-a={
-    b:[10, {c: 17}, true,{vector:[1,23,{d:100}]}]
-}
-
-console.log(a.b[3].vector[2].d);
-
 obGlobal={
     obErori:null
 }
 
-vect_foldere=["temp", "backup", "temp1"]
-for (let folder of vect_foldere ){
-    let caleFolder=path.join(__dirname,folder)
-    if (! fs.existsSync(caleFolder)){
-        fs.mkdirSync(caleFolder);
-    }
-}
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
@@ -74,6 +66,68 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 
 }
 
+// const Client =pg.Client;
+
+
+
+// client=new Client({
+//     database:"cti_2024",
+//     user:"irina",
+//     password:"irina",
+//     host:"localhost",
+//     port:5432
+// })
+
+// client.connect()
+// client.query("select * from prajituri", function(err, rezultat ){
+//     console.log(err)    
+//     console.log(rezultat)
+// })
+// client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezultat ){
+//     console.log(err)    
+//     console.log(rezultat)
+// })
+// app.get("/produse", function(req, res){
+//     console.log(req.query)
+//     var conditieQuery=""; // TO DO where din parametri
+
+
+//     queryOptiuni=""
+//     client.query(queryOptiuni, function(err, rezOptiuni){
+//         console.log(rezOptiuni)
+
+
+//         queryProduse=""
+//         client.query(queryProduse, function(err, rez){
+//             if (err){
+//                 console.log(err);
+//                 afisareEroare(res, 2);
+//             }
+//             else{
+//                 res.render("pagini/produse", {produse: rez.rows, optiuni:rezOptiuni.rows})
+//             }
+//         })
+//     });
+// })
+
+
+
+
+// a={
+//     b:[10, {c: 17}, true,{vector:[1,23,{d:100}]}]
+// }
+
+// console.log(a.b[3].vector[2].d);
+
+
+
+app.get("/resurse/*", function(req, res, next) {
+    if (req.url.endsWith('/')) {
+        afisareEroare(res, 403);
+    } else {
+        next();
+    }
+});
 
 
 app.use("/resurse", express.static(path.join(__dirname,"resurse")))
@@ -87,17 +141,17 @@ app.get(["/","/index","/home"], function(req, res){
 })
 
 app.get("/despre", function(req, res){
-
-    res.render("pagini/despre", {title: "Despre noi", message: "Pagina despre noi"});
+    
+    res.render("pagini/despre");
 })
 
 app.get("/index/a", function(req, res){
     res.render("pagini/index");
 })
 
-app.get("/fisier", function(req, res){
-    res.sendFile(__dirname+"/index.html");
-})
+// app.get("/fisier", function(req, res){
+//     res.sendFile(__dirname+"/index.html");
+// })
 
 app.get("/fisier2", function(req, res){
     res.sendFile(path.join(__dirname,"package.json"));
@@ -129,51 +183,58 @@ app.get("/cerere3", function(req, res,next){
 
 
 
-app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
-    afisareEroare(res,403);
-})
-
-
-app.get("/*.ejs", function(req, res, next){
-    afisareEroare(res, 400)
-})
-
-app.get("/resurse/*", function(req, res, next){
-    afisareEroare(res, 403)
-})
-
-app.get("/favicon.ico", function(req, res, next){
-    res.sendfile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"))
-})
-
-app.get("/*", function(req, res, next){
-    try{
-        res.render("pagini"+req.url, function(err, rezultatRandare){
+// app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
+    //     afisareEroare(res,403);
+    // })
+    
+    
+    app.get("/*ejs", function(req, res, next){
+        afisareEroare(res, 400)
+    })
+    
+    // app.get("/resurse/*", function(req, res, next){
+    //     afisareEroare(res, 403)
+    // })
+    
+    // app.get("/favicon.ico", function(req, res, next){
+    //     res.sendfile(path.join(__dirname, "resurse/imagini/favicon/favicon.ico"))
+    // })
+    
+    app.get("/*", function(req, res, next){
+        try{
+            res.render("pagini"+req.url, function(err, rezultatRandare){
+                if(err){
+                    console.log(err)
+                    if(err.message.startsWith("Failed to lookup view")){
+                        afisareEroare(res, 404)
+                    }
+                }
+                else{
+                    afisareEroare(res)
+                }
+            });
+        }
+        catch(errRandare){
             if(err){
                 console.log(err)
-                if(err.message.startsWith("Failed to lookup view")){
+                if(err.message.startsWith("Cannot find module")){
                     afisareEroare(res, 404)
                 }
             }
             else{
                 afisareEroare(res)
             }
-        });
-    }
-    catch(errRandare){
-        if(err){
-            console.log(err)
-            if(err.message.startsWith("Cannot find module")){
-                afisareEroare(res, 404)
-            }
         }
-        else{
-            afisareEroare(res)
+    })
+    
+    
+    vect_foldere=["temp", "backup", "temp1"]
+    for (let folder of vect_foldere ){
+        let caleFolder=path.join(__dirname,folder)
+        if (! fs.existsSync(caleFolder)){
+            fs.mkdirSync(caleFolder);
         }
     }
-})
-
-
-
-app.listen(8080);
+    
+    app.listen(8080);
 console.log("Serverul ruleaza pe portul 8080");

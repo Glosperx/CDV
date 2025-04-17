@@ -29,8 +29,7 @@ nav .main-menu > li > a {
 nav .main-menu > li > a:hover {
   color: var(--color-hover);
 }
-nav .main-menu > li.home-btn > a { /* Adaug > a pentru a targeta doar linkul principal */
-  overflow: hidden;
+nav .main-menu > li.home-btn > a { 
   position: relative;
   padding-left: 40px;
 }
