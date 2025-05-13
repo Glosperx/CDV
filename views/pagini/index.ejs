@@ -17,10 +17,16 @@
     <div id="grid_pag">
     <section id="prezentare">
         <h2>Solutii personalizate pentru materialele publicitare</h2>
-        <p>CDV oferă soluții complete pentru crearea și producția materialelor publicitare personalizate, de la <b>design</b> la livrare.</p>
+        <p>
+            <div class="container-reflect">
+        <div class="text">CDV</div>
+        <div class="text-reflectat">CDV</div>
+    </div>
+    oferă soluții complete pentru crearea și producția materialelor publicitare personalizate, de la <b>design</b> la livrare.</p>
         <p>Combinăm expertiza în <strong>grafică</strong> și <strong>tipografie</strong> pentru a livra produse de calitate, adaptate nevoilor fiecărui client.</p>
     </section>
     
+    <!-- <hr> -->
     <p><b>Ip: </b><%- locals.ip %></p>
         
     <section id="motivatie">
@@ -119,7 +125,7 @@
         </ul>
     </section>
 
-
+    <hr>
 
     <section id =about>
         <h2>
@@ -157,14 +163,24 @@
         Portofoliu
     </h2>
 
-    <figure>
+    <!-- <figure>
         <picture>
             <source srcset="/resurse/imagini/1v2_small.png" media="(max-width: 600px)">
             <source srcset="/resurse/imagini/1v2_medium.png" media="(max-width: 1024px)">
             <img src="/resurse/imagini/1v2.png" alt="Misterwatch">
         </picture>
         <figcaption>Misterwatch magazine</figcaption>
-    </figure>
+    </figure> -->
+
+    <% 
+    let ora = new Date().getHours();
+    for (let imag of locals.imagini) { 
+        if (imag.intervale_ore?.some(([start, end]) => ora >= start && ora <= end)) { %>
+            <picture>
+                <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width:1000px)" />
+                <img src="<%- imag.fisier %>" alt="<%- imag.alternativ %>">
+            </picture>
+<% }} %>
 
 </section>
 

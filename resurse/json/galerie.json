@@ -1,0 +1,110 @@
+{
+	"cale_galerie": "resurse/imagini/galerie",
+	"imagini": [
+	  {
+		"fisier": "awards.png",
+		"nume_imag": "Premii si distinctii",
+		"alternativ": "Trofee si certificate pe o masa",
+		"descriere_imag": "Premii si distinctii obtinute",
+		"intervale_ore": [[0, 8], [12, 16], [20, 23]]
+	  },
+	  {
+		"fisier": "a_coman.png",
+		"nume_imag": "Portret A. Coman",
+		"alternativ": "Portret al lui A. Coman",
+		"descriere_imag": "Portret profesional A. Coman",
+		"intervale_ore": [[8, 12], [16, 20]]
+	  },
+	  {
+		"fisier": "ceder.jpg",
+		"nume_imag": "Eveniment CEDER",
+		"alternativ": "Participanti la evenimentul CEDER",
+		"descriere_imag": "Momente din cadrul evenimentului CEDER",
+		"intervale_ore": [[10, 14], [18, 22]]
+	  },
+	  {
+		"fisier": "cij.jpg",
+		"nume_imag": "Conferinta IJ",
+		"alternativ": "Prezentare la conferinta IJ",
+		"descriere_imag": "Conferinta IJ in desfasurare",
+		"intervale_ore": [[9, 13], [15, 19]]
+	  },
+	  {
+		"fisier": "dialog.jpg",
+		"nume_imag": "Sesiune de dialog",
+		"alternativ": "Grup de persoane discutand",
+		"descriere_imag": "Sesiune interactiva de dialog",
+		"intervale_ore": [[7, 11], [14, 18]]
+	  },
+	  {
+		"fisier": "fermieri.jpg",
+		"nume_imag": "Intalnire cu fermieri",
+		"alternativ": "Fermieri discutand in camp",
+		"descriere_imag": "Intalnire cu fermieri locali",
+		"intervale_ore": [[6, 10], [16, 20]]
+	  },
+	  {
+		"fisier": "frane.jpg",
+		"nume_imag": "Prezentare sisteme de franare",
+		"alternativ": "Sistem de franare expus",
+		"descriere_imag": "Demonstratie sisteme de franare",
+		"intervale_ore": [[8, 12], [14, 18]]
+	  },
+	  {
+		"fisier": "herwatch.jpg",
+		"nume_imag": "Herwatch in actiune",
+		"alternativ": "Dispozitiv Herwatch functionand",
+		"descriere_imag": "Herwatch in utilizare practica",
+		"intervale_ore": [[10, 14], [18, 22]]
+	  },
+	  {
+		"fisier": "irigatii.jpg",
+		"nume_imag": "Proiect irigatii moderne",
+		"alternativ": "Sistem de irigatii in camp",
+		"descriere_imag": "Proiect de irigatii moderne",
+		"intervale_ore": [[6, 10], [16, 20]]
+	  },
+	  {
+		"fisier": "manual.jpg",
+		"nume_imag": "Lansare manual educational",
+		"alternativ": "Manual educational pe o masa",
+		"descriere_imag": "Lansarea unui manual educational",
+		"intervale_ore": [[9, 13], [15, 19]]
+	  },
+	  {
+		"fisier": "market_watch.jpg",
+		"nume_imag": "Analiza Market Watch",
+		"alternativ": "Grafice si rapoarte Market Watch",
+		"descriere_imag": "Analiza detaliata Market Watch",
+		"intervale_ore": [[8, 12], [14, 18]]
+	  },
+	  {
+		"fisier": "messi.jpg",
+		"nume_imag": "Messi in actiune",
+		"alternativ": "Messi pe teren",
+		"descriere_imag": "Messi in timpul unui meci",
+		"intervale_ore": [[10, 14], [18, 22]]
+	  },
+	  {
+		"fisier": "random.jpg",
+		"nume_imag": "Imagine aleatorie",
+		"alternativ": "Imagine fara tema specifica",
+		"descriere_imag": "Imagine aleatorie din colectie",
+		"intervale_ore": [[0, 23]]
+	  },
+	  {
+		"fisier": "succes.jpg",
+		"nume_imag": "Drumul spre succes",
+		"alternativ": "Persoana celebrand succesul",
+		"descriere_imag": "Reprezentare a succesului",
+		"intervale_ore": [[7, 11], [15, 19]]
+	  },
+	  {
+		"fisier": "t&t.jpg",
+		"nume_imag": "Tehnologie si Traditie",
+		"alternativ": "Combinatie de tehnologie si traditie",
+		"descriere_imag": "Tehnologie si Traditie in armonie",
+		"intervale_ore": [[9, 13], [16, 20]]
+	  }
+	]
+  }
