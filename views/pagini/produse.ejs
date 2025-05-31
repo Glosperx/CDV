@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta name="description" content="CDV-Design și Producție Publicitară oferă servicii complete de tipărire: reviste, bannere, roll-up-uri, cataloage și alte materiale publicitare.">
+        <meta name="keywords" content="tipografie, design, productie publicitara, reviste, bannere, roll-up, cataloage">
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <title>CDV - Pagina Produs</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+        <div class="container">
+          <div class="row">
+            <!-- Filtre -->
+            <div class="col-12 mb-4">
+              <!-- Text input -->
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="inp-nume" placeholder="Nume produs">
+                <label for="inp-nume">Caută după nume</label>
+              </div>
+
+              <!-- Range pentru preț -->
+              <div class="form-group">
+    <label for="inp-pret">Preț minim (<%- minPret %> - <%- maxPret %> RON):</label>
+    <input type="range" class="form-range" id="inp-pret" 
+           name="inp-pret" 
+           value="<%- minPret %>" 
+           min="<%- minPret %>" 
+           max="<%- maxPret %>"
+           step="1">
+    <span id="infoRange"><%- minPret %></span>
+</div>
+
+<div class="form-group">
+    <label for="inp-gramaj">Gramaj (<%- minGramaj %> - <%- maxGramaj %> g):</label>
+    <input type="range" class="form-range" id="inp-gramaj" 
+           name="inp-gramaj" 
+           value="<%- minGramaj %>" 
+           min="<%- minGramaj %>" 
+           max="<%- maxGramaj %>"
+           step="10">
+    <span id="infoGramaj"><%- minGramaj %></span>
+</div>
+
+              <!-- Datalist pentru materiale -->
+              <div class="mb-3">
+                <label for="inp-materiale" class="form-label">Materiale folosite:</label>
+                <input class="form-control" list="lista-materiale" id="inp-materiale">
+                <datalist id="lista-materiale">
+                  <option value="Carton">
+                  <option value="Hartie">
+                  <option value="Plastic">
+                  <option value="Metal">
+                </datalist>
+              </div>
+
+              <!-- Radio buttons ca toggle buttons -->
+              <div class="mb-3">
+                <label class="form-label d-block">Categorie:</label>
+                <div class="btn-group btn-group-toggle" role="group">
+                  <input type="radio" class="btn-check" name="gr_rad" id="toate" value="toate" checked>
+                  <label class="btn btn-outline-primary" for="toate">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                    <span class="btn-text">Toate</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="digital" value="digital">
+                  <label class="btn btn-outline-primary" for="digital">
+                    <i class="bi bi-laptop"></i>
+                    <span class="btn-text">Digital</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="offset" value="offset">
+                  <label class="btn btn-outline-primary" for="offset">
+                    <i class="bi bi-printer"></i>
+                    <span class="btn-text">Offset</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="large" value="large">
+                  <label class="btn btn-outline-primary" for="large">
+                    <i class="bi bi-arrows-angle-expand"></i>
+                    <span class="btn-text">Large Format</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Radio buttons pentru tip_produs -->
+              <div class="mb-3">
+                <label class="form-label d-block">Tip produs:</label>
+                <div class="btn-group btn-group-toggle" role="group">
+                  <input type="radio" class="btn-check" name="gr_rad" id="toate" value="toate" checked>
+                  <label class="btn btn-outline-primary" for="toate">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                    <span class="btn-text">Toate</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="reviste" value="reviste">
+                  <label class="btn btn-outline-primary" for="reviste">
+                    <i class="bi bi-book"></i>
+                    <span class="btn-text">Reviste</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="bannere" value="bannere">
+                  <label class="btn btn-outline-primary" for="bannere">
+                    <i class="bi bi-flag"></i>
+                    <span class="btn-text">Bannere</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="roll-up-uri" value="roll-up-uri">
+                  <label class="btn btn-outline-primary" for="roll-up-uri">
+                    <i class="bi bi-file-easel"></i>
+                    <span class="btn-text">Roll-up-uri</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="cataloage" value="cataloage">
+                  <label class="btn btn-outline-primary" for="cataloage">
+                    <i class="bi bi-journal-text"></i>
+                    <span class="btn-text">Cataloage</span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="gr_rad" id="alte-servicii" value="alte servicii">
+                  <label class="btn btn-outline-primary" for="alte-servicii">
+                    <i class="bi bi-tools"></i>
+                    <span class="btn-text">Alte servicii</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Checkboxuri pentru categorie -->
+              <div class="mb-3">
+                <label class="form-label d-block">Categorie:</label>
+                <div class="btn-group-vertical w-100">
+                  <input type="checkbox" class="btn-check" id="standard" value="standard">
+                  <label class="btn btn-outline-primary" for="standard">Standard</label>
+                  
+                  <input type="checkbox" class="btn-check" id="personalizat" value="personalizat">
+                  <label class="btn btn-outline-primary" for="personalizat">Personalizat</label>
+                  
+                  <input type="checkbox" class="btn-check" id="evenimente" value="evenimente">
+                  <label class="btn btn-outline-primary" for="evenimente">Evenimente</label>
+                  
+                  <input type="checkbox" class="btn-check" id="promotional" value="promotional">
+                  <label class="btn btn-outline-primary" for="promotional">Promoțional</label>
+                  
+                  <input type="checkbox" class="btn-check" id="comanda-speciala" value="comanda speciala">
+                  <label class="btn btn-outline-primary" for="comanda-speciala">Comandă specială</label>
+                </div>
+              </div>
+
+              <!-- Checkbox group -->
+              <div class="mb-3">
+                <label class="form-label d-block">Tip producție:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tip-digital" value="digital">
+                  <label class="form-check-label" for="tip-digital">Digital</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tip-offset" value="offset">
+                  <label class="form-check-label" for="tip-offset">Offset</label>
+                </div>
+              </div>
+
+              <!-- Textarea cu floating label -->
+              <div class="form-floating mb-3">
+                <textarea class="form-control" id="inp-descriere" placeholder="Descriere"></textarea>
+                <label for="inp-descriere">Descriere</label>
+              </div>
+
+              <!-- Select simplu -->
+              <div class="mb-3">
+                <label for="select-dimensiune" class="form-label">Dimensiune:</label>
+                <select class="form-select" id="select-dimensiune">
+                  <option value="">Oricare</option>
+                  <option value="A4">A4</option>
+                  <option value="A3">A3</option>
+                  <option value="A2">A2</option>
+                </select>
+              </div>
+
+              <!-- Select multiplu -->
+              <div class="mb-3">
+                <label for="select-finisaje" class="form-label">Finisaje:</label>
+                <select class="form-select" id="select-finisaje" multiple>
+                  <option value="laminare">Laminare</option>
+                  <option value="lacuire">Lacuire UV</option>
+                  <option value="emboss">Emboss</option>
+                  <option value="folio">Folio</option>
+                </select>
+              </div>
+
+              <!-- Butoane acțiuni -->
+              <div class="mt-4">
+                <button id="filtrare" class="btn btn-primary btn-icon-only">
+                  <i class="bi bi-funnel"></i>
+                  <span class="btn-text">Filtrare</span>
+                </button>
+                
+                <button id="resetare" class="btn btn-secondary btn-icon-only">
+                  <i class="bi bi-arrow-counterclockwise"></i>
+                  <span class="btn-text">Resetare</span>
+                </button>
+                
+                <button id="sortCrescNume" class="btn btn-primary btn-icon-only">
+                  <i class="bi bi-sort-alpha-down"></i>
+                  <span class="btn-text">Sortare</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section id="produse">
+            <h2>Produse</h2>
+            <div id="grid-produse" class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-prod">
+                            <p class="pret">Preț: <span class="val-pret"><%- prod.pret%></span> RON</p>
+                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- prod.gramaj%></span> g/m²</p>
+                            <p class="dimensiune">Dimensiune: <span class="val-dimensiune"><%- prod.dimensiune%></span></p>
+                            <p class="tip">Tip: <span class="val-tip"><%- prod.tip_produs%></span></p>
+                            <p class="materiale">Materiale: <span class="val-materiale"><%- prod.materiale%></span></p>
+                        </div>
+                        <p class="categorie">Categorie: <span class="val-categorie"><%- prod.categorie%></span></p>
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

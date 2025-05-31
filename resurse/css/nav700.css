@@ -91,6 +91,8 @@
         z-index: 1001;
     }
 
+    /* dreptunghi */
+
     .hamburger span {
         width: 100%;
         height: 5px;
@@ -98,37 +100,42 @@
         transition: all 0.5s ease-in-out;
     }
 
-    .hamburger span:nth-child(1) {
-        animation: bar-appear 0.6s ease-in-out forwards;
-        animation-delay: 0ms;
-    }
 
-    .hamburger span:nth-child(2) {
-        animation: bar-appear 0.6s ease-in-out forwards;
-        animation-delay: 100ms;
-    }
+    /*Bonus 1*/
+    /*Animatia pentru bara de meniu initiala */
 
-    .hamburger span:nth-child(3) {
-        animation: bar-appear 0.6s ease-in-out forwards;
-        animation-delay: 200ms;
-    }
+        .hamburger span:nth-child(1) {
+            animation: bar-appear 0.6s ease-in-out forwards;
+            animation-delay: 0ms;
+        }
 
-    #menu-toggle:checked + .hamburger span:nth-child(1) {
-        transform: translateY(12px) rotate(45deg);
-        background-color: var(--color-hover);
-        animation: bar-top 0.6s ease-in-out forwards;
-    }
+        .hamburger span:nth-child(2) {
+            animation: bar-appear 0.6s ease-in-out forwards;
+            animation-delay: 100ms;
+        }
 
-    #menu-toggle:checked + .hamburger span:nth-child(2) {
-        opacity: 0;
-        animation: bar-middle 0.6s ease-in-out forwards;
-    }
+        .hamburger span:nth-child(3) {
+            animation: bar-appear 0.6s ease-in-out forwards;
+            animation-delay: 200ms;
+        }
 
-    #menu-toggle:checked + .hamburger span:nth-child(3) {
-        transform: translateY(-12px) rotate(-45deg);
-        background-color: var(--color-hover);
-        animation: bar-bottom 0.6s ease-in-out forwards;
-    }
+    /* Animatia pentru bara de meniu cand este apasata */
+        #menu-toggle:checked + .hamburger span:nth-child(1) {
+            transform: translateY(12px) rotate(45deg);
+            background-color: var(--color-hover);
+            animation: bar-top 0.6s ease-in-out forwards;
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(2) {
+            opacity: 0;
+            animation: bar-middle 0.6s ease-in-out forwards;
+        }
+
+        #menu-toggle:checked + .hamburger span:nth-child(3) {
+            transform: translateY(-12px) rotate(-45deg);
+            background-color: var(--color-hover);
+            animation: bar-bottom 0.6s ease-in-out forwards;
+        }
 
     .main-menu {
         position: absolute;
@@ -238,25 +245,34 @@
         background: var(--color-highlight);
         color: var(--color-hover);
     }
+
 }
 
-@keyframes bar-appear {
-    0% {
-        transform: scaleX(0);
-        opacity: 0;
-        background-color: rgba(89, 151, 217, 0.3);
+
+/*Bonus 2*/
+
+/* Animatia trecere meniu mic */
+
+    @keyframes bar-appear {
+        0% {
+            transform: scaleX(0);
+            opacity: 0;
+            background-color: rgba(89, 151, 217, 0.3);
+        }
+        50% {
+            transform: scaleX(1.2);
+            opacity: 0.7;
+            background-color: rgba(89, 151, 217, 0.8);
+        }
+        100% {
+            transform: scaleX(1);
+            opacity: 1;
+            background-color: var(--color-primary);
+        }
     }
-    50% {
-        transform: scaleX(1.2);
-        opacity: 0.7;
-        background-color: rgba(89, 151, 217, 0.8);
-    }
-    100% {
-        transform: scaleX(1);
-        opacity: 1;
-        background-color: var(--color-primary);
-    }
-}
+
+
+/*Bonus 3*/
 
 @keyframes bar-top {
     0% {

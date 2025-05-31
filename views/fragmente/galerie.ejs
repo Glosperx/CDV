@@ -1,0 +1,238 @@
+<%
+// Determinăm ora curentă pentru afișarea imaginilor corespunzătoare
+let ora = new Date().getHours();
+
+// Pentru testare, puteți decomenta și modifica ora manuală
+// ora = 15; // Setează ora pentru testare
+
+// Verificăm dacă trebuie să afișăm toate imaginile sau doar cele pentru ora curentă
+let afiseaza_toate = typeof afisare_completa !== 'undefined' && afisare_completa === true;
+
+// Filtrăm imaginile care trebuie afișate
+let imagini_filtrate = [];
+
+if (afiseaza_toate) {
+    // Când afișăm toată galeria, includem toate imaginile
+    imagini_filtrate = [...imagini];
+} else {
+    // Când afișăm galeria filtrată, aplicăm filtrarea după oră
+    for (let imag of imagini) {
+        // Verificăm dacă ora curentă se încadrează în vreunul din intervalele imaginii
+        let seAfiseaza = false;
+        
+        if (imag.intervale_ore && Array.isArray(imag.intervale_ore)) {
+            for (let interval of imag.intervale_ore) {
+                if (Array.isArray(interval) && interval.length === 2) {
+                    const [start, end] = interval;
+                    
+                    if (ora >= start && ora <= end) {
+                        seAfiseaza = true;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        if (seAfiseaza) {
+            imagini_filtrate.push(imag);
+        }
+    }
+}
+
+// Verificăm dacă avem cel puțin o imagine filtrată
+if (imagini_filtrate.length === 0) {
+    // Nu avem imagini de afișat pentru ora curentă sau lista este goală
+    %>
+    <div class="galerie-gol">
+        <p>Nu există imagini disponibile pentru afișare în acest moment.</p>
+        <p>Ora curentă: <%= ora %>:00</p>
+        <% if (!afiseaza_toate) { %>
+            <div class="buton-container">
+                <a href="/galerie?toate=true" class="buton-galerie-completa">
+                    Vezi toată galeria
+                </a>
+            </div>
+        <% } %>
+    </div>
+    <%
+} else {
+    // Asigurăm-ne că avem un număr par de imagini pentru pattern-ul zig-zag
+    if (imagini_filtrate.length % 2 !== 0) {
+        imagini_filtrate.pop(); // Eliminăm ultima imagine pentru a avea un număr par
+    }
+    %>
+
+    <div class="galerie-container">
+        <div class="galerie-grid">
+            <% 
+            // Implementare grid cu pattern-ul exact din imagine
+            // Indexul pentru imaginile afișate
+            let index_imagine = 0;
+            
+            // Calculăm câte seturi de 3 rânduri avem nevoie (fiecare set conține 6 imagini)
+            const seturi_necesare = Math.ceil(imagini_filtrate.length / 6);
+            
+            // Generăm grid-ul 
+            for (let set = 0; set < seturi_necesare && index_imagine < imagini_filtrate.length; set++) {
+                // Fiecare set conține 3 rânduri
+                
+                // RÂNDUL 1: Prima celulă goală, restul cu imagini
+                %>
+                <div class="celula-goala primul-rand-prima-celula"></div>
+                <%
+                // A doua celulă din primul rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item primul-rand-a-doua-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <% 
+                // A treia celulă din primul rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item primul-rand-a-treia-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <!-- RÂNDUL 2: Imaginea în prima și a treia celulă, a doua celulă goală -->
+                <% 
+                // Prima celulă din al doilea rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item al-doilea-rand-prima-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <!-- A doua celulă din al doilea rând - goală -->
+                <div class="celula-goala al-doilea-rand-a-doua-celula"></div>
+                
+                <% 
+                // A treia celulă din al doilea rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item al-doilea-rand-a-treia-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <!-- RÂNDUL 3: Imaginea în prima și a doua celulă, a treia celulă goală -->
+                <% 
+                // Prima celulă din al treilea rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item al-treilea-rand-prima-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <% 
+                // A doua celulă din al treilea rând - cu imagine
+                if (index_imagine < imagini_filtrate.length) {
+                    let imag = imagini_filtrate[index_imagine++];
+                    let cale_relativă = imag.cale_relativa || imag.fisier || '';
+                    let numeFisier = cale_relativă.split('.')[0];
+                    %>
+                    <figure class="galerie-item al-treilea-rand-a-doua-celula">
+                        <picture>
+                            <source srcset="<%= cale_galerie %>/mic/<%= numeFisier %>.webp" media="(max-width: 576px)">
+                            <source srcset="<%= cale_galerie %>/mediu/<%= numeFisier %>.webp" media="(max-width: 992px)">
+                            <img src="<%= cale_galerie %>/<%= cale_relativă %>" 
+                                alt="<%= imag.alternativ || imag.nume_imag || 'Imagine galerie' %>" 
+                                title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine galerie' %>">
+                        </picture>
+                        <figcaption><%= imag.nume_imag || 'Imagine' %></figcaption>
+                        <% if (imag.descriere_licenta) { %>
+                            <div class="licenta-info"><%= imag.descriere_licenta %></div>
+                        <% } %>
+                    </figure>
+                <% } %>
+                
+                <!-- A treia celulă din al treilea rând - goală -->
+                <div class="celula-goala al-treilea-rand-a-treia-celula"></div>
+            <% } %>
+        </div>
+        
+        <% if (!afiseaza_toate) { %>
+        <div class="buton-container">
+            <a href="/galerie?toate=true" class="buton-galerie-completa">
+                Vezi toată galeria
+            </a>
+        </div>
+        <% } else { %>
+        <div class="buton-container">
+            <a href="/galerie" class="buton-galerie-completa">
+                Înapoi la galeria filtrată
+            </a>
+        </div>
+        <% } %>
+    </div>
+<% } %>

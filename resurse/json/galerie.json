@@ -1,0 +1,112 @@
+{
+    "cale_galerie": "resurse/imagini/galerie",
+    "imagini": [
+      {
+        "cale_relativa": "a_coman.png",
+        "nume_imag": "Portret A. Coman",
+        "alternativ": "Portret al lui A. Coman",
+        "descriere_imag": "Portret profesional A. Coman",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "awards.png",
+        "nume_imag": "Premii și distincții",
+        "alternativ": "Imagine reprezentând premii",
+        "descriere_imag": "Trofee și certificate de excelență",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "ceder.png",
+        "nume_imag": "Eveniment CEDER",
+        "alternativ": "Imagine de la evenimentul CEDER",
+        "descriere_imag": "Eveniment oficial CEDER",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "cij.png",
+        "nume_imag": "Conferință CIJ",
+        "alternativ": "Fotografie din timpul conferinței CIJ",
+        "descriere_imag": "Prezentare oficială în cadrul conferinței CIJ",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "dialog.png",
+        "nume_imag": "Sesiune dialog",
+        "alternativ": "Imagine din revista Dialog",
+        "descriere_imag": "Copertă revistă Dialog cu interviuri",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "fermieri.png",
+        "nume_imag": "Întâlnire fermieri",
+        "alternativ": "Imagine reprezentând întâlnirea cu fermierii",
+        "descriere_imag": "Prezentare pentru grupul de fermieri",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "frane.png",
+        "nume_imag": "Sisteme de frânare",
+        "alternativ": "Imagine reprezentând sisteme de frânare",
+        "descriere_imag": "Demonstrație sisteme de frânare avansate",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "herwatch.png",
+        "nume_imag": "Herwatch",
+        "alternativ": "Imagine cu revista Herwatch",
+        "descriere_imag": "Copertă revistă Herwatch cu tehnologii noi",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "irigatii.png",
+        "nume_imag": "Sistem irigații",
+        "alternativ": "Imagine reprezentând sisteme de irigații",
+        "descriere_imag": "Tehnologie modernă pentru sisteme de irigații",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "manual.png",
+        "nume_imag": "Manual educațional",
+        "alternativ": "Copertă manual educațional",
+        "descriere_imag": "Manual de instruire pentru utilizatori",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]],
+        "descriere_licenta": "Imagine licențiată sub CC-BY 4.0"
+      },
+      {
+        "cale_relativa": "market_watch.png",
+        "nume_imag": "Market Watch",
+        "alternativ": "Copertă revistă Market Watch",
+        "descriere_imag": "Ediție specială a revistei Market Watch",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "messi.png",
+        "nume_imag": "Messi",
+        "alternativ": "Imagine cu Messi pe copertă",
+        "descriere_imag": "Articol despre Messi în revista sportivă",
+        "intervale_ore": [[0, 7], [14, 16], [22, 23]]
+      },
+      {
+        "cale_relativa": "random.png",
+        "nume_imag": "Imagine random",
+        "alternativ": "Imagine abstract de tip random",
+        "descriere_imag": "Imaginea simbolică pentru conținut aleator",
+        "intervale_ore": [[0, 24]]
+      },
+      {
+        "cale_relativa": "succes.png",
+        "nume_imag": "Succes",
+        "alternativ": "Imagine reprezentând succesul",
+        "descriere_imag": "Portret profesional în revistă de business",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]]
+      },
+      {
+        "cale_relativa": "t&t.png",
+        "nume_imag": "Tehnologie și Tradiție",
+        "alternativ": "Copertă revistă T&T",
+        "descriere_imag": "Articol despre îmbinarea tehnologiei cu tradiția",
+        "intervale_ore": [[0, 1], [8, 13], [17, 21]],
+        "descriere_licenta": "Imagine licențiată sub CC-BY 4.0"
+      }
+    ]
+  }

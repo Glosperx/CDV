@@ -1,5 +1,10 @@
 <header>
     <h1>CDV | Design & Producție Publicitară</h1>
+    
+    <!-- Adaugă butonul de theme toggle după titlu -->
+    <button id="schimba_tema" class="theme-toggle" title="Schimbă tema">
+        <i class="fas fa-sun"></i>
+    </button>
 
                 <input type="checkbox" id="menu-toggle" style="display: none;">
                 <label class="hamburger" for="menu-toggle">
@@ -9,13 +14,13 @@
                 </label>
                 <nav>
                     <ul class="main-menu">
-                        <li class="home-btn"><a href="#"><span>Acasă</span></a>
+                        <li class="home-btn"><a href="/"><span>Acasă</span></a>
                             <ul class="submenu">
                                 <li><a href="/index#prezentare">Prezentare generală</a></li>
                                 <li><a href="/index#motivatie">Ce ne diferențiază</a></li>
                             </ul>
                         </li>
-                        <li><a href="/index#about">Despre Noi</a>
+                        <li><a href="/despre">Despre Noi</a>
                             <ul class="submenu">
                                 <li><a href="/index#scop">Scopul agenției</a></li>
                                 <li><a href="/index#about#experienta">Experiență</a></li>
@@ -30,8 +35,28 @@
                                 <li><a href="/toate?roll-up-uri">Roll-up-uri</a></li>
                             </ul> 
                         </li>
+                        <li><a href="/galerie">Galerie</a></li>
                         <li><a href="/index#gallery">Portofoliu</a></li>
                         <li><a href="/index#contact">Contact</a></li>
+                        <!-- MENIU PRODUSE CU CATEGORII GENERATE DIN BAZA DE DATE -->
+                        <li><a href="/produse" id="produse-link">Produse</a>
+                <ul class="submenu">
+                    <li><a href="/produse"><span class="arrow">→</span> Toate produsele</a></li>
+                    
+                    <!-- CATEGORII PRINCIPALE -->
+                    <li class="submenu-title"><span>După categorie:</span></li>
+                    <% for(let opt of locals.optiuni || []) { %>
+                        <li><a href="/produse?categorie=<%= opt.unnest %>"><span class="arrow">→</span> <%= opt.unnest %></a></li>
+                    <% } %>
+                    
+                    <!-- TIPURI DE MATERIALE -->
+                    <li class="submenu-title"><span>După tip:</span></li>
+                    <li><a href="/produse?tip=banner"><span class="arrow">→</span> Bannere</a></li>
+                    <li><a href="/produse?tip=brosura"><span class="arrow">→</span> Broșuri</a></li>
+                    <li><a href="/produse?tip=rollup"><span class="arrow">→</span> Roll-up-uri</a></li>
+                    <li><a href="/produse?tip=catalog"><span class="arrow">→</span> Cataloage</a></li>
+                </ul>
+            </li>
                     </ul>
                 </nav>
             </header>

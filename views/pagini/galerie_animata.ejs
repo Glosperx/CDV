@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie Animată - Steak</title>
+    <link rel="stylesheet" href="/resurse/css/galerie_animata.css">
+</head>
+<body>
+
+    <h1>Galeria de Steak</h1>
+
+    <% if (imagini && imagini.length > 0) { %>
+        <div id="galerie-animata">
+            <% for (let img of imagini) { %>
+                <img src="<%= cale_galerie %>/<%= img.fisier_imagine %>" 
+                     alt="<%= img.continut_alternativ %>" 
+                     title="<%= img.descriere_poza %>">
+            <% } %>
+        </div>
+    <% } else { %>
+        <p>Nu sunt imagini disponibile momentan.</p>
+    <% } %>
+
+    <script src="/resurse/js/galerie.js"></script>
+</body>
+</html>

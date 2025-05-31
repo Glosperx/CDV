@@ -1,0 +1,286 @@
+// Custom color variables
+$cdv-primary: #5997D9;
+$cdv-secondary: #EAEFF5;
+$cdv-success: #43A047;
+$cdv-info: #00ACC1;
+$cdv-warning: #FFB300;
+$cdv-danger: #E53935;
+$cdv-light: #F8F9FA;
+$cdv-dark: #374957;
+
+// Custom themes
+$theme-colors: (
+  "primary": $cdv-primary,
+  "secondary": $cdv-secondary,
+  "success": $cdv-success,
+  "info": $cdv-info,
+  "warning": $cdv-warning,
+  "danger": $cdv-danger,
+  "light": $cdv-light,
+  "dark": $cdv-dark
+);
+
+// Alternative theme (second theme)
+$alt-primary: #6A1B9A;
+$alt-secondary: #F3E5F5;
+$alt-success: #558B2F;
+$alt-info: #0277BD;
+$alt-warning: #FF8F00;
+$alt-danger: #C62828;
+$alt-light: #FAFAFA;
+$alt-dark: #37474F;
+
+// Font colors customization
+$body-color: $cdv-dark;
+$headings-color: darken($cdv-primary, 10%);
+$link-color: $cdv-primary;
+$link-hover-color: darken($cdv-primary, 15%);
+
+// Custom breakpoints for medium and large screens
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 800px,    // Changed from default 768px
+  lg: 1100px,   // Changed from default 992px
+  xl: 1400px    // Changed from default 1200px
+);
+
+// Container max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 760px,    // Adjusted for new breakpoint
+  lg: 1060px,   // Adjusted for new breakpoint
+  xl: 1340px    // Adjusted for new breakpoint
+);
+
+// Border radius customization
+$border-radius: .5rem;
+$border-radius-lg: .75rem;
+$border-radius-sm: .25rem;
+
+// Typography customization
+$font-family-base: 'Ubuntu', sans-serif;
+$headings-font-family: 'Ubuntu', sans-serif;
+
+// Heading font sizes
+$h1-font-size: 2.75rem;
+$h2-font-size: 2.25rem;
+$h3-font-size: 1.75rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1rem;
+
+// Customizing more variables
+$enable-shadows: true;
+$enable-gradients: true;
+$btn-border-radius: $border-radius;
+$card-border-radius: $border-radius;
+$card-cap-bg: $cdv-secondary;
+$navbar-padding-y: 1rem;
+$input-btn-padding-y: .5rem;
+$input-btn-padding-x: 1rem;
+
+// Custom component styling
+.cdv-card {
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-header {
+    background-color: $cdv-primary;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+// Custom button styling
+.cdv-btn {
+  border-radius: $border-radius;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &.cdv-btn-primary {
+    background-color: $cdv-primary;
+    border-color: $cdv-primary;
+    color: white;
+    
+    &:hover {
+      background-color: darken($cdv-primary, 10%);
+      border-color: darken($cdv-primary, 10%);
+    }
+  }
+  
+  &.cdv-btn-secondary {
+    background-color: $cdv-secondary;
+    border-color: $cdv-secondary;
+    color: $cdv-dark;
+    
+    &:hover {
+      background-color: darken($cdv-secondary, 10%);
+      border-color: darken($cdv-secondary, 10%);
+    }
+  }
+}
+
+// Alternate theme class - applies the second theme
+.alt-theme {
+  --bs-primary: #{$alt-primary};
+  --bs-secondary: #{$alt-secondary};
+  --bs-success: #{$alt-success};
+  --bs-info: #{$alt-info};
+  --bs-warning: #{$alt-warning};
+  --bs-danger: #{$alt-danger};
+  --bs-light: #{$alt-light};
+  --bs-dark: #{$alt-dark};
+  
+  .btn-primary {
+    background-color: $alt-primary;
+    border-color: $alt-primary;
+    
+    &:hover {
+      background-color: darken($alt-primary, 10%);
+      border-color: darken($alt-primary, 10%);
+    }
+  }
+  
+  .card-header {
+    background-color: $alt-primary;
+  }
+}
+
+// Additional fixes for existing elements
+#grid_pag {
+  display: grid;
+  grid-template-columns: 30% 20% 20% 30%;
+  grid-template-areas:
+      "header header header header"
+      "prezentare prezentare prezentare prezentare"
+      "about motivatie motivatie gallery"
+      "videos motivatie motivatie gallery"
+      "tabel scop services services"
+      "map map map map"
+      "faq faq faq faq"
+      "download download download download"
+      "footer footer footer footer";
+  gap: 5px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 2px 6px rgba(30, 64, 175, 0.1);
+  border-radius: 10px;
+  padding: var(--zone-padding);
+  min-height: 100vh;
+}
+
+// Fix for headers that might be affected by Bootstrap
+header {
+  background-color: var(--color-background);
+  border-bottom: 2px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+  border-radius: 10px;
+  padding: var(--zone-padding);
+  grid-area: header;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+// Navigation fixes
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: var(--color-hover);
+}
+
+// Media query mixins (simplified versions of Bootstrap's)
+@mixin media-breakpoint-down($breakpoint) {
+  @if $breakpoint == lg {
+    @media (max-width: 1100px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: 800px) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+}
+
+// Media queries based on our custom breakpoints
+@include media-breakpoint-down(lg) {
+  .container {
+    max-width: 95%;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cdv-card {
+    margin-bottom: 1rem;
+  }
+}
+
+// Additional fixes for existing elements
+#tabel {
+  overflow-x: auto;
+  
+  table {
+    width: 100%;
+  }
+}
+
+footer {
+  margin-top: 2rem;
+}

@@ -1,0 +1,167 @@
+/* Light theme variables (default) */
+:root {
+    --page-padding: 20px;
+    --grid-gap: 20px;
+    --zone-padding: 20px;
+    --color-primary: #5997D9;
+    --color-hover: #3973A8;
+    --color-text: #374957;
+    --color-background: #F8F9FA;
+    --color-secondary: #EAEFF5;
+    --color-highlight: #AACFF5;
+    --visited-color: #6b21a8;
+    --highlight-color: #AACFF5;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --color-background: #1a1f25;
+    --color-primary: #5997D9;
+    --color-hover: #7DB0E8;
+    --color-text: #E8F1F8;
+    --color-secondary: #2a3947;
+    --color-highlight: #7DB0E8;
+    --visited-color: #B784ED;
+    --highlight-color: #3973A8;
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background: var(--color-primary);
+    border: none;
+    color: var(--color-background);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--color-hover);
+    transform: scale(1.1);
+}
+
+/* Base styles using variables */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    font-family: "Ubuntu", sans-serif;
+}
+
+/* Card and container styles */
+.container-custom {
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+    padding: var(--zone-padding);
+    margin: var(--grid-gap) 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-custom {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Link styles */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-hover);
+}
+
+a:visited {
+    color: var(--visited-color);
+}
+
+/* Dark theme specific styles */
+[data-theme="dark"] #faq,
+[data-theme="dark"] #about,
+[data-theme="dark"] #services,
+[data-theme="dark"] #motivatie,
+[data-theme="dark"] #prezentare,
+[data-theme="dark"] #gallery,
+[data-theme="dark"] #videos,
+[data-theme="dark"] #scop,
+[data-theme="dark"] #map,
+[data-theme="dark"] #download {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] li {
+    color: var(--color-text);
+    text-shadow: var(--text-shadow);
+}
+
+[data-theme="dark"] #grid_pag {
+    background-color: var(--color-background);
+    border-color: var(--color-primary);
+}
+
+[data-theme="dark"] header {
+    background-color: var(--color-background);
+    border-bottom-color: var(--color-primary);
+}
+
+[data-theme="dark"] footer {
+    background-color: var(--color-background);
+    border-top-color: var(--color-highlight);
+}
+
+[data-theme="dark"] #tabel {
+    background-color: var(--color-secondary);
+}
+
+[data-theme="dark"] #tabel thead {
+    background-color: var(--color-primary);
+}
+
+[data-theme="dark"] #tabel tfoot {
+    background-color: var(--color-highlight);
+}
+
+[data-theme="dark"] .taburi-iframe a {
+    background-color: var(--color-secondary);
+    color: var(--color-highlight);
+}
+
+[data-theme="dark"] .taburi-iframe a:hover {
+    background-color: var(--color-hover);
+}
+
+[data-theme="dark"] #link-top {
+    background-color: var(--color-secondary);
+    border-color: var(--color-text);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] #link-top:hover {
+    background-color: var(--color-highlight);
+}

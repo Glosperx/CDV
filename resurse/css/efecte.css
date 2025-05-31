@@ -1,0 +1,387 @@
+/* Counter pentru numerotarea imaginilor */
+body {
+    counter-reset: imagini-counter;
+    --culoare-primara: #5997D9;
+    --culoare-secundara: #374957;
+    --culoare-text-selection-bg: #FFD700;
+    --culoare-text-selection-text: #000080;
+}
+
+/* Adăugăm variabilele de spațiere */
+:root {
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}
+
+/* Container principal pentru galerie */
+.galerie-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Grid pentru pattern-ul zig-zag */
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Stilizare pentru celulele goale */
+.celula-goala {
+    min-height: 50px;
+}
+
+/* Stilizare pentru elementele figure (imaginile) */
+.galerie-item {
+    margin: 0;
+    padding: 0;
+    border: 2px solid var(--culoare-primara);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+
+/* Aplicăm strălucirea inițială redusă (50%) */
+.galerie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(50%);
+    transition: filter 1.2s ease;
+}
+
+/* Stilizare figcaption */
+.galerie-item figcaption {
+    padding: 12px 15px;
+    background-color: #EAEFF5;
+    color: var(--culoare-secundara);
+    transition: background-color 1.2s ease, color 1.2s ease;
+}
+
+/* Adăugăm indexul numeric cu counter CSS */
+.galerie-item figcaption::before {
+    counter-increment: imagini-counter;
+    content: counter(imagini-counter, decimal-leading-zero) ". ";
+    font-weight: bold;
+}
+
+/* Stilizare pentru informațiile despre licență */
+.galerie-item .licenta-info {
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-style: italic;
+}
+
+/* Efecte la hover */
+.galerie-item:hover img {
+    filter: brightness(100%);
+}
+
+.galerie-item:hover figcaption {
+    background-color: var(--culoare-primara);
+    color: white;
+}
+
+/* Definirea celulelor în grid pentru pattern-ul exact din imagine */
+/* Primul rând: Prima celulă goală, a doua și a treia cu imagini */
+.primul-rand-prima-celula {
+    grid-column: 1;
+    grid-row: auto;
+}
+
+.primul-rand-a-doua-celula {
+    grid-column: 2;
+    grid-row: auto;
+}
+
+.primul-rand-a-treia-celula {
+    grid-column: 3;
+    grid-row: auto;
+}
+
+/* Al doilea rând: Prima și a treia celulă cu imagini, a doua goală */
+.al-doilea-rand-prima-celula {
+    grid-column: 1;
+    grid-row: auto;
+}
+
+.al-doilea-rand-a-doua-celula {
+    grid-column: 2;
+    grid-row: auto;
+}
+
+.al-doilea-rand-a-treia-celula {
+    grid-column: 3;
+    grid-row: auto;
+}
+
+/* Al treilea rând: Prima și a doua celulă cu imagini, a treia goală */
+.al-treilea-rand-prima-celula {
+    grid-column: 1; 
+    grid-row: auto;
+}
+
+.al-treilea-rand-a-doua-celula {
+    grid-column: 2;
+    grid-row: auto;
+}
+
+.al-treilea-rand-a-treia-celula {
+    grid-column: 3;
+    grid-row: auto;
+}
+
+/* Media queries pentru ecran mediu (tabletă) */
+@media (max-width: 992px) {
+    .galerie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Resetăm poziționarea pentru ecran mediu - două coloane fără spații goale */
+    .celula-goala {
+        display: none;
+    }
+    
+    .galerie-item {
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+    
+    /* Pe ecran mediu, afișăm o singură coloană pentru text */
+    .descriere-galerie,
+    .note-galerie {
+        column-count: 1;
+    }
+}
+
+/* Media queries pentru ecran mic (mobil) */
+@media (max-width: 576px) {
+    .galerie-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Resetăm poziționarea pentru ecran mic - o coloană fără spații goale */
+    .galerie-item {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+    
+    /* Pe ecran mic, afișăm o singură coloană pentru text */
+    .descriere-galerie,
+    .note-galerie {
+        column-count: 1;
+    }
+}
+
+/* Animație de fade-in pentru imagini */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.galerie-item {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Delay pentru animații secvențiale */
+.galerie-item:nth-child(1) { animation-delay: 0.1s; }
+.galerie-item:nth-child(2) { animation-delay: 0.2s; }
+.galerie-item:nth-child(3) { animation-delay: 0.3s; }
+.galerie-item:nth-child(4) { animation-delay: 0.4s; }
+.galerie-item:nth-child(5) { animation-delay: 0.5s; }
+.galerie-item:nth-child(6) { animation-delay: 0.6s; }
+.galerie-item:nth-child(7) { animation-delay: 0.7s; }
+.galerie-item:nth-child(8) { animation-delay: 0.8s; }
+.galerie-item:nth-child(9) { animation-delay: 0.9s; }
+.galerie-item:nth-child(10) { animation-delay: 1.0s; }
+.galerie-item:nth-child(11) { animation-delay: 1.1s; }
+.galerie-item:nth-child(12) { animation-delay: 1.2s; }
+.galerie-item:nth-child(13) { animation-delay: 1.3s; }
+.galerie-item:nth-child(14) { animation-delay: 1.4s; }
+.galerie-item:nth-child(15) { animation-delay: 1.5s; }
+.galerie-item:nth-child(16) { animation-delay: 1.6s; }
+.galerie-item:nth-child(17) { animation-delay: 1.7s; }
+.galerie-item:nth-child(18) { animation-delay: 1.8s; }
+
+/* Stiluri specifice pentru pagina de galerie */
+.descriere-galerie,
+.note-galerie {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    
+    /* CERINTA 1: Text pe coloane */
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid var(--culoare-primara);
+    text-align: justify;
+    padding: 20px;
+}
+
+/* CERINTA 2: Stilizare text selectat */
+::selection {
+    background-color: var(--culoare-text-selection-bg);
+    color: var(--culoare-text-selection-text);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.note-galerie {
+    margin-top: 40px;
+    font-style: italic;
+    color: #666;
+}
+
+h1.titlu-galerie {
+    text-align: center;
+    margin: 30px 0;
+    color: var(--culoare-primara);
+    position: relative;
+}
+
+h1.titlu-galerie::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--culoare-primara);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.moment-zi {
+    display: inline-block;
+    background-color: #EAEFF5;
+    color: var(--culoare-secundara);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 10px 0 30px;
+}
+
+/* Buton pentru galeria completă */
+.buton-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.buton-galerie-completa {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--culoare-primara);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buton-galerie-completa:hover {
+    background-color: #3973A8;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CERINTA 3: Text animat care se plimbă */
+.text-animat-container {
+    overflow: hidden;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 20px auto;
+    position: relative;
+    max-width: 900px;
+}
+
+.text-animat {
+    white-space: nowrap;
+    color: var(--culoare-secundara);
+    font-weight: 500;
+    position: absolute;
+    animation: plimbare 15s linear infinite;
+}
+
+@keyframes plimbare {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Stilizare HR cu linii duble */
+.efect-css-stilizare-hr {
+    height: 12px;
+    border: none;
+    background-image: 
+        linear-gradient(to right, 
+            var(--culoare-primara) 0, var(--culoare-primara) 25px, 
+            transparent 25px, transparent 50px,
+            var(--culoare-primara) 50px, var(--culoare-primara) 75px,
+            transparent 75px, transparent 100px,
+            var(--culoare-primara) 100px, var(--culoare-primara) 125px),
+        linear-gradient(to right, 
+            var(--culoare-secundara) 5px, var(--culoare-secundara) 30px, 
+            transparent 30px, transparent 55px,
+            var(--culoare-secundara) 55px, var(--culoare-secundara) 80px,
+            transparent 80px, transparent 105px,
+            var(--culoare-secundara) 105px, var(--culoare-secundara) 130px);
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+/* Varianta simplificată */
+.linie-stilizata {
+    height: 12px;
+    border: none;
+    background-image:
+      linear-gradient(to right, var(--color-primary) 10%, transparent 10%, transparent 25%, var(--color-primary) 25%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: var(--spacing-md) 0;
+}
+
+/* Linie segmentată */
+.linie-segmentata {
+    height: 10px;
+    border: none;
+    background-image: 
+        linear-gradient(to right, 
+            var(--color-primary) 0, var(--color-primary) 25px, 
+            transparent 25px, transparent 50px,
+            var(--color-primary) 50px, var(--color-primary) 75px,
+            transparent 75px);
+    background-size: 100px 100%;
+    background-repeat: repeat-x;
+    margin: var(--spacing-md) 0;
+}
+
+/* Linie cu efect de highlight */
+.linie-highlight {
+    height: 8px;
+    border: none;
+    background-image: 
+        linear-gradient(to right, 
+            var(--color-highlight) 0, var(--color-highlight) 20px, 
+            transparent 20px, transparent 40px);
+    background-size: 40px 100%;
+    background-repeat: repeat-x;
+    margin: var(--spacing-md) 0;
+    filter: saturate(150%) brightness(110%);
+}

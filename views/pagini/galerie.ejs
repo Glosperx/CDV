@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <%- include("../fragmente/head.ejs") %>
+        <title>Galerie Completă - CDV | Design & Producție Publicitară</title>
+        <link rel="stylesheet" href="/resurse/css/efecte.css">
+        <style>
+            .titlu-galerie-completa {
+                text-align: center;
+                margin: 30px 0;
+                color: #5997D9;
+                font-size: 2.2em;
+            }
+            
+            .descriere-galerie-completa {
+                max-width: 900px;
+                margin: 0 auto 30px;
+                text-align: center;
+                line-height: 1.6;
+            }
+            
+            .buton-inapoi {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #5997D9;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                margin: 30px auto;
+                font-weight: 500;
+                transition: background-color 0.3s ease;
+            }
+            
+            .buton-inapoi:hover {
+                background-color: #3973A8;
+            }
+            
+            .container-buton {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+
+        <main>
+            <h1 class="titlu-galerie-completa">Galerie Completă de Imagini</h1>
+            
+            <div class="descriere-galerie-completa">
+                <p>
+                    Aici puteți vizualiza toate imaginile din galeria noastră, indiferent de ora curentă.
+                    Galeria noastră completă conține o colecție diversă de materiale publicitare și de design realizate de echipa CDV.
+                </p>
+            </div>
+            
+            <div class="container-buton">
+                <a href="/galerie" class="buton-inapoi">
+                    <i class="fa fa-arrow-left"></i> Înapoi la galeria filtrată
+                </a>
+            </div>
+            
+            <!-- Includem fragmentul de galerie cu parametrul pentru afișarea completă -->
+            <%- include("../fragmente/galerie.ejs", {imagini: imagini, cale_galerie: cale_galerie, afisare_completa: true}) %>
+            
+            <div class="container-buton">
+                <a href="/galerie" class="buton-inapoi">
+                    <i class="fa fa-arrow-left"></i> Înapoi la galeria filtrată
+                </a>
+            </div>
+        </main>
+        
+        <%- include("../fragmente/footer.ejs") %>
+    </body>
+</html>

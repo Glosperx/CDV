@@ -20,6 +20,8 @@
         <p>CDV oferă soluții complete pentru crearea și producția materialelor publicitare personalizate, de la <b>design</b> la livrare.</p>
         <p>Combinăm expertiza în <strong>grafică</strong> și <strong>tipografie</strong> pentru a livra produse de calitate, adaptate nevoilor fiecărui client.</p>
     </section>
+
+    <hr class="efect-css-stilizare-hr">
     
     <p><b>Ip: </b><%- locals.ip %></p>
         
@@ -119,9 +121,9 @@
         </ul>
     </section>
 
+    <hr class="efect-css-stilizare-hr">
 
-
-    <section id =about>
+    <section id="about">
         <h2>
             Despre noi
         </h2>
@@ -140,7 +142,7 @@
             <dd>Oferim soluții adaptate nevoilor fiecărui client.</dd>
         </dl>
 
-        <section id = "scop">
+        <section id="scop">
             <h3>
                 Scopul Nostru
             </h3>
@@ -157,17 +159,69 @@
         Portofoliu
     </h2>
 
-    <figure>
-        <picture>
-            <source srcset="/resurse/imagini/1v2_small.png" media="(max-width: 600px)">
-            <source srcset="/resurse/imagini/1v2_medium.png" media="(max-width: 1024px)">
-            <img src="/resurse/imagini/1v2.png" alt="Misterwatch">
-        </picture>
-        <figcaption>Misterwatch magazine</figcaption>
-    </figure>
-
+    <div class="portofolio-container">
+        <% 
+        let ora = new Date().getHours();
+        let imagini_afisate = 0;
+        
+        // Verificăm corectitudinea datelor primite
+        if (locals.imagini && Array.isArray(locals.imagini)) {
+            for (let imag of locals.imagini) { 
+                // Verificăm dacă imaginea trebuie afișată în funcție de ora curentă
+                let se_afiseaza = false;
+                if (imag.intervale_ore && Array.isArray(imag.intervale_ore)) {
+                    for (let interval of imag.intervale_ore) {
+                        if (ora >= interval[0] && ora <= interval[1]) {
+                            se_afiseaza = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (se_afiseaza) { 
+                    imagini_afisate++;
+                    // Verificăm ce proprietăți sunt disponibile
+                    let sursa_imagine = "";
+                    let sursa_imagine_mediu = "";
+                    
+                    if (imag.fisier) {
+                        sursa_imagine = imag.fisier;
+                        sursa_imagine_mediu = imag.fisier_mediu || sursa_imagine;
+                    } else if (imag.cale_relativa) {
+                        sursa_imagine = imag.cale_relativa.startsWith('/') ? 
+                            imag.cale_relativa : 
+                            '/resurse/imagini/galerie/' + imag.cale_relativa;
+                        
+                        let numeFisier = imag.cale_relativa.split('.')[0];
+                        sursa_imagine_mediu = '/resurse/imagini/galerie/mediu/' + numeFisier + '.webp';
+                    }
+                    
+                    if (sursa_imagine) {
+                %>
+                <div class="portofolio-item">
+                    <picture>
+                        <source srcset="<%= sursa_imagine_mediu %>" media="screen and (max-width:1000px)" />
+                        <img src="<%= sursa_imagine %>" 
+                            alt="<%= imag.alternativ || imag.nume_imag || 'Imagine portofoliu' %>"
+                            title="<%= imag.descriere_imag || imag.nume_imag || 'Imagine portofoliu' %>">
+                    </picture>
+                    <div class="portofolio-caption">
+                        <%= imag.nume_imag || 'Imagine' %> #<%= imagini_afisate %>
+                    </div>
+                </div>
+                <% } 
+                }
+            } 
+        } %>
+        
+        <!-- Dacă nu avem imagini afișate, arătăm un mesaj -->
+        <% if (imagini_afisate === 0) { %>
+            <div class="no-images-message">
+                Nu există imagini disponibile pentru afișare în acest moment.
+            </div>
+        <% } %>
+    </div>
 </section>
-
 
 <section id="services">
 <h2>

@@ -1,0 +1,1264 @@
+/* Reset pentru layout principal */
+main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2rem;
+    display: block !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Stilizare sectiuni */
+main > section {
+    display: block;
+    grid-area: unset !important;
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    background-color: var(--color-secondary);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titluri sectiuni */
+section h2 {
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* STILIZARE CONTAINER FILTRE */
+#filtrare-produse {
+    background-color: var(--color-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.filtre-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.filtru-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.filtru-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.filtru-item label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.filtru-item label i {
+    margin-right: 0.5rem;
+    color: var(--color-primary);
+}
+
+/* Stilizare inputuri */
+.filtru-item input[type="text"],
+.filtru-item textarea,
+.filtru-item select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: var(--color-background);
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.filtru-item input[type="text"]:focus,
+.filtru-item textarea:focus,
+.filtru-item select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(192, 95, 62, 0.2);
+}
+
+/* Stilizare range slider */
+.filtru-item input[type="range"] {
+    width: 100%;
+    margin: 0.5rem 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.filtru-item input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+}
+
+.filtru-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    margin-top: -6px;
+    cursor: pointer;
+}
+
+.filtru-item input[type="range"]:focus {
+    outline: none;
+}
+
+.val-min, .val-max {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+#infoRange {
+    font-weight: bold;
+    color: var(--color-text);
+    margin-left: 0.5rem;
+}
+
+/* Stilizare radio buttons si checkboxes */
+.grup-radio p, .grup-check p {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+}
+
+.radio-options, .check-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+}
+
+.radio-options label, .check-options label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: normal;
+    gap: 0.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.radio-options input, .check-options input {
+    cursor: pointer;
+}
+
+/* Stilizare butoane */
+.butoane-container {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #ddd;
+}
+
+.btn {
+    padding: 0.8rem 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-hover);
+}
+
+.btn-secondary {
+    background-color: #C05F3E;
+    color: #F7F3E8;
+}
+
+.btn-secondary:hover {
+    background-color: #A54E34;
+}
+
+.btn-danger {
+    background-color: #D9534F;
+    color: #F7F3E8;
+}
+
+.btn-danger:hover {
+    background-color: #C9302C;
+}
+
+.btn-info {
+    background-color: #5BC0DE;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #46B8DA;
+}
+
+/* Paragraful pentru suma */
+#p-suma {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text);
+    margin: 1rem 0;
+    background-color: var(--color-secondary);
+    padding: 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* GRID PRODUSE */
+.grid-produse {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* STILIZARE CARD PRODUS */
+.produs {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.produs:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-hover);
+}
+
+/* BONUS 18: Stilizare marcaj produs nou */
+.marcaj-nou {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, #ff6b35, #ff8e53);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(255, 107, 53, 0.4);
+    animation: pulse-nou 2s infinite;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+@keyframes pulse-nou {
+    0% { transform: scale(1); box-shadow: 0 3px 8px rgba(255, 107, 53, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 107, 53, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 3px 8px rgba(255, 107, 53, 0.4); }
+}
+
+.marcaj-nou i {
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+/* BONUS 14: Stilizare marcaj cel mai ieftin */
+.marcaj-ieftin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    padding: 0.4rem 0.7rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(243, 156, 18, 0.4);
+    animation: glow-ieftin 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-align: center;
+    max-width: 150px;
+    line-height: 1.2;
+}
+
+@keyframes glow-ieftin {
+    0%, 100% { box-shadow: 0 3px 8px rgba(243, 156, 18, 0.4); }
+    50% { box-shadow: 0 5px 15px rgba(243, 156, 18, 0.7), 0 0 20px rgba(243, 156, 18, 0.3); }
+}
+
+.marcaj-ieftin i {
+    color: #ffd700;
+    animation: trophy-shine 2s ease-in-out infinite;
+}
+
+@keyframes trophy-shine {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Ajustări pentru când ambele marcaje sunt prezente */
+.produs.produs-nou .marcaj-ieftin {
+    top: 60px; /* Mutăm marcajul cel mai ieftin mai jos dacă există și marcajul nou */
+}
+
+/* Stilizare produs nou - efect pe întreg cardul */
+.produs-nou {
+    border: 2px solid #ff6b35;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.produs-nou:hover {
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Titlu produs */
+.produs h3 {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.produs h3 a {
+    color: var(--color-background);
+    text-decoration: none;
+}
+
+.produs h3 a:hover {
+    color: var(--color-highlight);
+}
+
+/* Tabel informatii */
+.info-produs {
+    padding: 0 1rem;
+}
+
+.info-produs table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.info-produs th, .info-produs td {
+    padding: 0.6rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.85rem;
+}
+
+.info-produs th {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.info-produs tr:nth-child(even) {
+    background-color: var(--color-background);
+}
+
+.val-pret {
+    color: var(--color-text);
+}
+
+.text-success {
+    color: #5CB85C;
+}
+
+.text-danger {
+    color: #D9534F;
+}
+
+/* Descriere produs */
+.produs .descriere {
+    padding: 1rem;
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-color: var(--color-background);
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin: 0;
+}
+
+/* Imagine produs */
+.produs figure {
+    text-align: center;
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+}
+
+.produs figure img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.produs figure img:hover {
+    transform: scale(1.05);
+}
+
+/* Categorie produs */
+.produs p.categorie {
+    text-align: center;
+    background-color: var(--color-secondary);
+    padding: 0.8rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background-color: #C05F3E;
+    color: #F7F3E8;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* Caracteristici */
+.caracteristici {
+    padding: 1rem;
+    background-color: #FFF;
+    border-top: 1px solid #eee;
+}
+
+.caracteristici p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.caracteristici ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.caracteristici li {
+    background-color: var(--color-secondary);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--color-text);
+}
+
+/* Checkbox selectare */
+.selecteaza-cos {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.selecteaza-cos:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+/* Stiluri pentru categorii specifice */
+.premium {
+    border-left: 4px solid #D4AF37;
+}
+
+.pentru-incepatori {
+    border-left: 4px solid #5CB85C;
+}
+
+.profesional {
+    border-left: 4px solid #337AB7;
+}
+
+.vintage {
+    border-left: 4px solid #9C6B30;
+}
+
+.editie-limitata {
+    border-left: 4px solid #BB4BBB;
+}
+
+/* Stiluri pentru tipuri de produse */
+.chitara-electrica h3 {
+    background-color: #6B3E31;
+}
+
+.chitara-acustica h3 {
+    background-color: #8D6E63;
+}
+
+.amplificator h3 {
+    background-color: #455A64;
+}
+
+.accesorii h3 {
+    background-color: #795548;
+}
+
+/* Stilizare erori input */
+.input-error {
+    border: 2px solid #D9534F !important;
+    background-color: #FFF5F5 !important;
+}
+
+/* ========================================
+   BONUS 3: STILURI PENTRU MESAJUL DE LIPSA PRODUSE (0.05p)
+   ======================================== */
+
+.mesaj-no-produse {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px dashed #6B3E31;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mesaj-no-produse h3 {
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.mesaj-no-produse p {
+    color: #666;
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.mesaj-no-produse .btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mesaj-no-produse .btn:hover {
+    background-color: #C05F3E;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   BONUS 15: STILURI PENTRU CONTORUL DE PRODUSE (0.05p)
+   ======================================== */
+
+.contor-produse {
+    background: linear-gradient(135deg, #6B3E31, #8B5A3C);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contor-produse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.contor-produse:hover::before {
+    left: 100%;
+}
+
+.info-produse {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.numar-afisat {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #F7E9D7;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    min-width: 40px;
+    display: inline-block;
+}
+
+.numar-total {
+    color: #F7E9D7;
+    font-weight: normal;
+}
+
+.filtru-activ {
+    color: #FFD700;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* Animații pentru contorul de produse */
+@keyframes counter-update {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.contor-produse.updating {
+    animation: counter-update 0.3s ease;
+}
+
+.contor-produse.updating .numar-afisat {
+    background-color: #C05F3E;
+    animation: pulse-number 0.5s ease;
+}
+
+@keyframes pulse-number {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ========================================
+   BONUS 4: STILURI PENTRU FILTRAREA AUTOMATA (0.4p max)
+   ======================================== */
+
+.auto-filter-info {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #e8f5e8, #f0f8ff);
+    border-radius: 8px;
+    border: 1px solid #5CB85C;
+    margin-top: 1rem;
+}
+
+.auto-filter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #5CB85C, #4CAF50);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 8px rgba(92, 184, 92, 0.3);
+    animation: pulse-auto 2s infinite;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes pulse-auto {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+/* Indicatori vizuali pentru inputurile cu filtrare automată */
+.filtru-item {
+    position: relative;
+}
+
+.filtru-item input:focus,
+.filtru-item select:focus,
+.filtru-item textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(192, 95, 62, 0.2);
+    outline: none;
+}
+
+.filtru-item input.auto-filtering,
+.filtru-item select.auto-filtering,
+.filtru-item textarea.auto-filtering {
+    border-color: #5CB85C;
+    background-color: rgba(92, 184, 92, 0.05);
+    animation: input-glow 0.5s ease;
+}
+
+@keyframes input-glow {
+    0% { box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); }
+    100% { box-shadow: 0 0 0 rgba(92, 184, 92, 0); }
+}
+
+/* ========================================
+   BONUS 8: STILURI PENTRU SORTAREA MULTIPLA (0.35p)
+   ======================================== */
+
+.sortare-multipla {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid #6B3E31;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.sortare-multipla h4 {
+    color: var(--color-text);
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+}
+
+.sortare-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sortare-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    align-items: end;
+}
+
+.sortare-multipla label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.sortare-multipla select {
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background-color: var(--color-background);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.sortare-multipla select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(192, 95, 62, 0.2);
+}
+
+.sortare-multipla select:hover {
+    border-color: #6B3E31;
+}
+
+/* Buton pentru sortare multiplă */
+#sortare-multipla {
+    background: linear-gradient(135deg, #5BC0DE, #46B8DA);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#sortare-multipla::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+#sortare-multipla:hover::before {
+    left: 100%;
+}
+
+#sortare-multipla:hover {
+    background: linear-gradient(135deg, #46B8DA, #31A5C3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Notificare pentru sortare */
+.sort-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6B3E31, #C05F3E);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    font-weight: bold;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN PENTRU BONUSURI
+   ======================================== */
+
+@media screen and (max-width: 992px) {
+    .grid-produse {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-produse {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding: 0 1rem;
+    }
+    
+    .filtre-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .butoane-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .info-produs th, .info-produs td {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+    }
+    
+    .caracteristici ul {
+        flex-direction: column;
+    }
+    
+    .marcaj-nou, .marcaj-ieftin {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.5rem;
+        max-width: 120px;
+    }
+    
+    .mesaj-no-produse {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
+    }
+    
+    .mesaj-no-produse h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contor-produse {
+        padding: 0.8rem 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-produse {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .numar-afisat {
+        font-size: 1.1rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .sortare-multipla {
+        padding: 1rem;
+    }
+    
+    .sortare-row {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .auto-filter-info {
+        padding: 0.8rem;
+    }
+    
+    .auto-filter-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .mesaj-no-produse {
+        padding: 1.5rem 0.8rem;
+    }
+    
+    .contor-produse {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .info-produse {
+        font-size: 0.9rem;
+    }
+    
+    .sortare-multipla {
+        padding: 0.8rem;
+        margin-top: 0.5rem;
+    }
+    
+    .sortare-multipla h4 {
+        font-size: 1rem;
+    }
+    
+    .butoane-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    #sortare-multipla {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .sort-notification {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        top: auto;
+        transform: translateY(100%);
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .sort-notification.visible {
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   TEMA ÎNTUNECATĂ PENTRU BONUSURI
+   ======================================== */
+
+.theme-dark .mesaj-no-produse {
+    background: linear-gradient(135deg, #2D1A19, #362114);
+    border-color: #4A2C2A;
+    color: #D8C9A7;
+}
+
+.theme-dark .mesaj-no-produse h3 {
+    color: #D8C9A7;
+}
+
+.theme-dark .mesaj-no-produse p {
+    color: #B38867;
+}
+
+.theme-dark .mesaj-no-produse .btn {
+    background-color: #4A2C2A;
+    color: #D8C9A7;
+}
+
+.theme-dark .mesaj-no-produse .btn:hover {
+    background-color: #C05F3E;
+}
+
+.theme-dark .contor-produse {
+    background: linear-gradient(135deg, #2D1A19, #4A2C2A);
+    border-color: #C05F3E;
+    color: #D8C9A7;
+}
+
+.theme-dark .numar-afisat {
+    background-color: rgba(192, 95, 62, 0.3);
+    color: #F7E9D7;
+}
+
+.theme-dark .sortare-multipla {
+    background: linear-gradient(135deg, #2D1A19, #362114);
+    border-color: #4A2C2A;
+    color: #D8C9A7;
+}
+
+.theme-dark .sortare-multipla h4 {
+    color: #D8C9A7;
+    border-bottom-color: #C05F3E;
+}
+
+.theme-dark .sortare-multipla label {
+    color: #D8C9A7;
+}
+
+.theme-dark .sortare-multipla select {
+    background-color: #1a0D0C;
+    border-color: #4A2C2A;
+    color: #D8C9A7;
+}
+
+.theme-dark .sortare-multipla select:focus {
+    border-color: #C05F3E;
+}
+
+.theme-dark .auto-filter-info {
+    background: linear-gradient(135deg, #1a0D0C, #2D1A19);
+    border-color: #4A2C2A;
+}
+
+/* ========================================
+   ANIMAȚII GENERALE PENTRU BONUSURI
+   ======================================== */
+
+/* Animații pentru tranziții smooth */
+.grid-produse.filtering {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.grid-produse.filtering::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #6B3E31;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+@keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Highlight pentru filtrarea activă */
+.filtru-item.active-filter {
+    background-color: rgba(92, 184, 92, 0.1);
+    border-radius: 8px;
+    animation: highlight-filter 0.3s ease;
+}
+
+@keyframes highlight-filter {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(92, 184, 92, 0.2); }
+    100% { background-color: rgba(92, 184, 92, 0.1); }
+}
+
+/* Efecte pentru butoane interactive */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   STILURI PENTRU BONUS 11 (Modal)
+   ======================================== */
+
+/* Cursor pointer pentru containerul produsului */
+.produs {
+    cursor: pointer;
+    position: relative;
+}
+
+/* Stilizare speciala pentru link-urile produsului */
+.produs .product-link {
+    position: relative;
+    z-index: 2;
+    display: block;
+}
+
+/* Hover effect pentru container produs */
+.produs:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--color-primary);
+}
+
+/* Stilizare pentru link-urile din produs sa nu afecteze hover-ul containerului */
+.produs h3 a,
+.produs figure a {
+    transition: all 0.3s ease;
+}
+
+.produs h3 a:hover,
+.produs figure a:hover {
+    color: var(--color-primary);
+    transform: scale(1.02);
+}
+
+/* Indicatie vizuala ca produsul poate fi deschis in modal */
+.produs::after {
+    content: "Click pentru detalii rapide";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(107, 62, 49, 0.9);
+    color: #F7F3E8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.produs:hover::after {
+    opacity: 1;
+    bottom: -25px;
+}
+
+/* Asiguram ca checkbox-ul ramane functional */
+.selecteaza-cos {
+    position: relative;
+    z-index: 3;
+}
+
+/* Stilizare pentru a diferentia link-urile clickabile */
+.produs .product-link {
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.produs .product-link:hover {
+    background-color: rgba(192, 95, 62, 0.1);
+    box-shadow: 0 2px 5px rgba(192, 95, 62, 0.2);
+}
+
+/* Media queries pentru responsive design */
+@media screen and (max-width: 768px) {
+    .produs::after {
+        content: "Tap pentru detalii";
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .produs:hover::after {
+        opacity: 0; /* Ascundem tooltip-ul pe mobile */
+    }
+}
