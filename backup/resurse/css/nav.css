@@ -1,7 +1,21 @@
+/* Definim variabilele CSS pentru consistență */
+:root {
+  --color-background: #F8F9FA;
+  --color-text: #374957;
+  --color-hover: #3973A8;
+  --color-secondary: #EAEFF5;
+  --color-primary: #5997D9;
+  --color-highlight: #AACFF5;
+  --zone-padding: 20px;
+}
+
 nav {
   background: var(--color-background);
   padding: 0 var(--zone-padding);
+  position: relative;
+  z-index: 10000; /* Asigurăm că meniul este deasupra */
 }
+
 nav .main-menu {
   list-style: none;
   margin: 0;
@@ -11,10 +25,12 @@ nav .main-menu {
   align-items: center;
   height: 60px;
 }
+
 nav .main-menu > li {
   position: relative;
   height: 100%;
 }
+
 nav .main-menu > li > a {
   display: flex;
   align-items: center;
@@ -24,16 +40,19 @@ nav .main-menu > li > a {
   color: var(--color-text);
   font-size: 16px;
   font-weight: bold;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
+
 nav .main-menu > li > a:hover {
   color: var(--color-hover);
 }
+
 nav .main-menu > li.home-btn > a {
   overflow: hidden;
   position: relative;
   padding-left: 40px;
 }
+
 nav .main-menu > li.home-btn > a::before {
   content: "\f015";
   font-family: "Font Awesome 6 Free";
@@ -44,17 +63,21 @@ nav .main-menu > li.home-btn > a::before {
   transform: translateY(-50%);
   font-size: 16px;
   opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
+
 nav .main-menu > li.home-btn > a span {
   display: inline-block;
   max-width: 0;
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: max-width 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
+
 nav .main-menu > li.home-btn:hover > a span {
   max-width: 100px;
   opacity: 1;
 }
+
 nav .main-menu > li .submenu {
   list-style: none;
   padding: 0;
@@ -67,23 +90,28 @@ nav .main-menu > li .submenu {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   transform: scale(0);
-  transform-origin: top left;
-  transition: transform 0.3s ease-in-out;
+  transform-origin: bottom left;
+  transition: transform 0.5s ease-in-out;
+  z-index: 10001; /* Deasupra meniului principal */
 }
+
 nav .main-menu > li .submenu li a {
   display: block;
   padding: 10px 15px;
   text-decoration: none;
   color: var(--color-text);
   font-size: 14px;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
+
 nav .main-menu > li .submenu li a:hover {
   color: var(--color-hover);
 }
+
 nav .main-menu > li:hover > .submenu {
   transform: scale(1);
 }
+
 nav .main-menu > li:nth-child(1) > a {
   transition-delay: 0.05s;
 }
@@ -108,61 +136,214 @@ nav .main-menu > li:nth-child(5) > a {
     display: none;
   }
 }
-.hamburger-icon {
-  position: relative;
-  width: 30px;
-  height: 22px;
-  cursor: pointer;
-  z-index: 1002;
-}
-.hamburger-icon span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: #333;
-  transition: all 0.4s ease;
-  opacity: 1;
-}
-.hamburger-icon span:nth-child(1) {
-  top: 0;
-}
-.hamburger-icon span:nth-child(2) {
-  top: 9px;
-}
-.hamburger-icon span:nth-child(3) {
-  top: 18px;
+
+/* Stiluri pentru hamburger (doar pentru ecran mic, preluate din nav700.css) */
+@media (max-width: 750px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 10003;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 5px;
+    background-color: var(--color-primary);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    animation: bar-appear 0.6s ease-in-out forwards;
+    animation-delay: 0ms;
+  }
+
+  .hamburger span:nth-child(2) {
+    animation: bar-appear 0.6s ease-in-out forwards;
+    animation-delay: 100ms;
+  }
+
+  .hamburger span:nth-child(3) {
+    animation: bar-appear 0.6s ease-in-out forwards;
+    animation-delay: 200ms;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+    background-color: var(--color-hover);
+    animation: bar-top 0.6s ease-in-out forwards;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+    animation: bar-middle 0.6s ease-in-out forwards;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+    background-color: var(--color-hover);
+    animation: bar-bottom 0.6s ease-in-out forwards;
+  }
+
+  nav .main-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: var(--color-secondary);
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transform-origin: top;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+  }
+
+  #menu-toggle:checked + .hamburger + nav .main-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    display: flex;
+  }
+
+  nav .main-menu li {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  nav .main-menu a {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav .main-menu a:hover {
+    background: var(--color-highlight);
+    color: var(--color-text);
+  }
+
+  nav .main-menu > li.home-btn a::before {
+    content: "\f015";
+    font-family: "Font Awesome 6 Free";
+    margin-right: 8px;
+  }
+
+  nav .main-menu > li.home-btn a span {
+    display: none;
+  }
+
+  nav .main-menu > li .submenu {
+    position: static;
+    width: 100%;
+    background-color: var(--color-background);
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10002;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(-10px);
+  }
+
+  nav .main-menu li:hover > .submenu {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav .main-menu > li .submenu li a {
+    padding: 10px 20px 10px 40px;
+    text-align: left;
+    color: var(--color-primary);
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav .main-menu > li .submenu li a:hover {
+    background: var(--color-highlight);
+    color: var(--color-hover);
+  }
 }
 
-@keyframes hamburger-bar-animation {
+/* Animații pentru hamburger (din nav700.css) */
+@keyframes bar-appear {
   0% {
-    background-color: #333;
-    transform: translateX(0) scaleX(1);
+    transform: scaleX(0);
+    opacity: 0;
+    background-color: rgba(89, 151, 217, 0.3);
+  }
+  50% {
+    transform: scaleX(1.2);
+    opacity: 0.7;
+    background-color: rgba(89, 151, 217, 0.8);
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+    background-color: var(--color-primary);
+  }
+}
+
+@keyframes bar-top {
+  0% {
+    transform: translateY(0) rotate(0);
+    background-color: var(--color-primary);
+  }
+  50% {
+    transform: translateY(12px) rotate(20deg);
+    background-color: var(--color-primary);
+  }
+  100% {
+    transform: translateY(12px) rotate(45deg);
+    background-color: var(--color-hover);
+  }
+}
+
+@keyframes bar-middle {
+  0% {
     opacity: 1;
   }
   50% {
-    background-color: rgb(127.5, 127.5, 127.5);
-    transform: translateX(10px) scaleX(0.8);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
-    background-color: red;
-    transform: translateX(0) scaleX(1.1);
-    opacity: 1;
+    opacity: 0;
   }
 }
-.hamburger-icon.active span {
-  animation: hamburger-bar-animation 0.9s ease-in-out forwards;
-}
 
-.hamburger-icon.active span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.hamburger-icon.active span:nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.hamburger-icon.active span:nth-child(3) {
-  animation-delay: 0.6s;
+@keyframes bar-bottom {
+  0% {
+    transform: translateY(0) rotate(0);
+    background-color: var(--color-primary);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-20deg);
+    background-color: var(--color-primary);
+  }
+  100% {
+    transform: translateY(-12px) rotate(-45deg);
+    background-color: var(--color-hover);
+  }
 }

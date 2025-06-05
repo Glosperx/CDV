@@ -14,7 +14,7 @@
         font-size: 15px;
     }
 
-    #grid-pagina {
+    #grid_pag {
         grid-template-columns: 100%;
         grid-template-areas:
             "header"
@@ -30,6 +30,14 @@
             "faq"
             "download"
             "footer";
+        z-index: 0; /* Very low z-index to stay below menu */
+        position: static; /* Prevent stacking context */
+    }
+
+    /* Ensure grid sections stay below menu */
+    .prezentare, .about, .motivatie, .gallery, .videos, .tabel, .scop, .services, .map, .faq, .download, .footer {
+        z-index: 0; /* Very low z-index */
+        position: static; /* Prevent stacking context */
     }
 
     header {
@@ -44,6 +52,8 @@
         border-bottom: 2px solid var(--color-primary);
         box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
         border-radius: 10px;
+        z-index: 1000; /* Below nav and menu, above content */
+        isolation: isolate; /* Prevent ancestor interference */
     }
 
     header > h1 {
@@ -57,7 +67,8 @@
         padding: 0;
         position: relative;
         width: 100%;
-        z-index: 100;
+        z-index: 10000; /* High z-index for stacking context */
+        isolation: isolate; /* Prevent ancestor interference */
     }
 
     nav ul {
@@ -75,6 +86,8 @@
 
     main {
         max-width: 90%;
+        z-index: 0; /* Below menu */
+        position: static; /* Prevent stacking context */
     }
 
     .hamburger {
@@ -88,10 +101,8 @@
         width: 40px;
         height: 30px;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 10003; /* Above main-menu and submenu */
     }
-
-    /* dreptunghi */
 
     .hamburger span {
         width: 100%;
@@ -100,42 +111,37 @@
         transition: all 0.5s ease-in-out;
     }
 
+    .hamburger span:nth-child(1) {
+        animation: bar-appear 0.6s ease-in-out forwards;
+        animation-delay: 0ms;
+    }
 
-    /*Bonus 1*/
-    /*Animatia pentru bara de meniu initiala */
+    .hamburger span:nth-child(2) {
+        animation: bar-appear 0.6s ease-in-out forwards;
+        animation-delay: 100ms;
+    }
 
-        .hamburger span:nth-child(1) {
-            animation: bar-appear 0.6s ease-in-out forwards;
-            animation-delay: 0ms;
-        }
+    .hamburger span:nth-child(3) {
+        animation: bar-appear 0.6s ease-in-out forwards;
+        animation-delay: 200ms;
+    }
 
-        .hamburger span:nth-child(2) {
-            animation: bar-appear 0.6s ease-in-out forwards;
-            animation-delay: 100ms;
-        }
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+        transform: translateY(12px) rotate(45deg);
+        background-color: var(--color-hover);
+        animation: bar-top 0.6s ease-in-out forwards;
+    }
 
-        .hamburger span:nth-child(3) {
-            animation: bar-appear 0.6s ease-in-out forwards;
-            animation-delay: 200ms;
-        }
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+        opacity: 0;
+        animation: bar-middle 0.6s ease-in-out forwards;
+    }
 
-    /* Animatia pentru bara de meniu cand este apasata */
-        #menu-toggle:checked + .hamburger span:nth-child(1) {
-            transform: translateY(12px) rotate(45deg);
-            background-color: var(--color-hover);
-            animation: bar-top 0.6s ease-in-out forwards;
-        }
-
-        #menu-toggle:checked + .hamburger span:nth-child(2) {
-            opacity: 0;
-            animation: bar-middle 0.6s ease-in-out forwards;
-        }
-
-        #menu-toggle:checked + .hamburger span:nth-child(3) {
-            transform: translateY(-12px) rotate(-45deg);
-            background-color: var(--color-hover);
-            animation: bar-bottom 0.6s ease-in-out forwards;
-        }
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+        transform: translateY(-12px) rotate(-45deg);
+        background-color: var(--color-hover);
+        animation: bar-bottom 0.6s ease-in-out forwards;
+    }
 
     .main-menu {
         position: absolute;
@@ -143,7 +149,7 @@
         left: 0;
         width: 100%;
         height: auto;
-        background-color: var(--color-secondary);
+        background-color: var(--color-secondary); /* Light, opaque background */
         padding: 10px;
         text-align: center;
         opacity: 0;
@@ -155,8 +161,9 @@
         flex-direction: column;
         list-style: none;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 10001; /* Above header and content, below submenu */
     }
-    
+
     #menu-toggle:checked + .hamburger + nav .main-menu {
         opacity: 1;
         visibility: visible;
@@ -174,7 +181,7 @@
         display: block;
         width: 100%;
         padding: 12px 20px;
-        color: var(--color-text);
+        color: var(--color-text); /* Dark text for contrast */
         text-decoration: none;
         font-weight: bold;
         font-size: 1.2rem;
@@ -182,8 +189,8 @@
     }
 
     .main-menu a:hover {
-        background: var(--color-highlight);
-        color: var(--color-text);
+        background: var(--color-highlight); /* Light highlight for hover */
+        color: var(--color-text); /* Maintain dark text */
     }
 
     .main-menu > li.home-btn a::before {
@@ -209,21 +216,24 @@
         margin: 0;
         position: static;
         width: 100%;
-        background-color: var(--color-background);
+        background-color: var(--color-background); /* White-like, opaque background */
         max-height: 0;
         opacity: 0;
         visibility: hidden;
         border-radius: 5px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
+        z-index: 10002; /* Above main-menu */
         overflow: hidden;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
+        transform: translateY(-10px); /* Start above for slide-down */
     }
-    
+
     .main-menu li:hover > .submenu {
         max-height: 500px;
         opacity: 1;
         visibility: visible;
+        transform: translateY(0); /* Slide to original position */
+        animation: submenu-slide 0.5s ease-in-out forwards;
     }
 
     .submenu li {
@@ -236,23 +246,32 @@
         display: block;
         padding: 10px 20px 10px 40px;
         text-align: left;
-        color: var(--color-primary);
+        color: var(--color-primary); /* Primary color for contrast */
         text-decoration: none;
         font-size: 1rem;
+        transition: all 0.3s ease-in-out;
     }
 
     .submenu a:hover {
-        background: var(--color-highlight);
-        color: var(--color-hover);
+        background: var(--color-highlight); /* Consistent hover effect */
+        color: var(--color-hover); /* Darker shade for hover */
     }
 
-}
+    /* Submenu animation */
+    @keyframes submenu-slide {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+            max-height: 0;
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 500px;
+        }
+    }
 
-
-/*Bonus 2*/
-
-/* Animatia trecere meniu mic */
-
+    /* Existing animations for hamburger menu */
     @keyframes bar-appear {
         0% {
             transform: scaleX(0);
@@ -271,47 +290,45 @@
         }
     }
 
+    @keyframes bar-top {
+        0% {
+            transform: translateY(0) rotate(0);
+            background-color: var(--color-primary);
+        }
+        50% {
+            transform: translateY(12px) rotate(20deg);
+            background-color: var(--color-primary);
+        }
+        100% {
+            transform: translateY(12px) rotate(45deg);
+            background-color: var(--color-hover);
+        }
+    }
 
-/*Bonus 3*/
+    @keyframes bar-middle {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
 
-@keyframes bar-top {
-    0% {
-        transform: translateY(0) rotate(0);
-        background-color: var(--color-primary);
-    }
-    50% {
-        transform: translateY(12px) rotate(20deg);
-        background-color: var(--color-primary);
-    }
-    100% {
-        transform: translateY(12px) rotate(45deg);
-        background-color: var(--color-hover);
-    }
-}
-
-@keyframes bar-middle {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes bar-bottom {
-    0% {
-        transform: translateY(0) rotate(0);
-        background-color: var(--color-primary);
-    }
-    50% {
-        transform: translateY(-12px) rotate(-20deg);
-        background-color: var(--color-primary);
-    }
-    100% {
-        transform: translateY(-12px) rotate(-45deg);
-        background-color: var(--color-hover);
+    @keyframes bar-bottom {
+        0% {
+            transform: translateY(0) rotate(0);
+            background-color: var(--color-primary);
+        }
+        50% {
+            transform: translateY(-12px) rotate(-20deg);
+            background-color: var(--color-primary);
+        }
+        100% {
+            transform: translateY(-12px) rotate(-45deg);
+            background-color: var(--color-hover);
+        }
     }
 }
