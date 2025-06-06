@@ -30,14 +30,13 @@
             "faq"
             "download"
             "footer";
-        z-index: 0; /* Very low z-index to stay below menu */
-        position: static; /* Prevent stacking context */
+        z-index: 0;
+        position: static;
     }
 
-    /* Ensure grid sections stay below menu */
     .prezentare, .about, .motivatie, .gallery, .videos, .tabel, .scop, .services, .map, .faq, .download, .footer {
-        z-index: 0; /* Very low z-index */
-        position: static; /* Prevent stacking context */
+        z-index: 0;
+        position: static;
     }
 
     header {
@@ -52,8 +51,8 @@
         border-bottom: 2px solid var(--color-primary);
         box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
         border-radius: 10px;
-        z-index: 1000; /* Below nav and menu, above content */
-        isolation: isolate; /* Prevent ancestor interference */
+        z-index: 1000;
+        isolation: isolate;
     }
 
     header > h1 {
@@ -67,8 +66,8 @@
         padding: 0;
         position: relative;
         width: 100%;
-        z-index: 10000; /* High z-index for stacking context */
-        isolation: isolate; /* Prevent ancestor interference */
+        z-index: 10000;
+        isolation: isolate;
     }
 
     nav ul {
@@ -86,8 +85,8 @@
 
     main {
         max-width: 90%;
-        z-index: 0; /* Below menu */
-        position: static; /* Prevent stacking context */
+        z-index: 1;
+        position: relative;
     }
 
     .hamburger {
@@ -101,7 +100,12 @@
         width: 40px;
         height: 30px;
         cursor: pointer;
-        z-index: 10003; /* Above main-menu and submenu */
+        z-index: 10003;
+        transition: transform 0.3s ease;
+    }
+
+    #menu-toggle:checked + .hamburger {
+        transform: translateY(-50%) scale(1.1);
     }
 
     .hamburger span {
@@ -149,26 +153,72 @@
         left: 0;
         width: 100%;
         height: auto;
-        background-color: var(--color-secondary); /* Light, opaque background */
-        padding: 10px;
+        
+        /* ===== FUNDAL COMPLET OPAC - NU SE VEDE PRIN EL ===== */
+        background-color: var(--color-secondary);
+        backdrop-filter: none;
+        border: 2px solid var(--color-primary);
+        
+        /* ===== ASIGURĂ OPACITATEA 100% ===== */
+        background-clip: border-box;
+        -webkit-backdrop-filter: none;
+        
+        padding: 15px;
         text-align: center;
+        
+        /* ===== PORNEȘTE INVIZIBIL ===== */
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-20px);
-        transform-origin: top;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
+        
+        /* ===== TRANZIȚIE RAPIDĂ ===== */
+        transition: opacity 0.4s ease-out,
+                    visibility 0.4s ease-out;
+        
         display: flex;
         flex-direction: column;
         list-style: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        z-index: 10001; /* Above header and content, below submenu */
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        z-index: 9999;
+        
+        /* ===== PREVINE ORICE TRANSPARENȚĂ ===== */
+        -webkit-background-composite: source-over;
     }
 
     #menu-toggle:checked + .hamburger + nav .main-menu {
-        opacity: 1;
         visibility: visible;
-        transform: translateY(0);
         display: flex;
+        /* ===== ANIMAȚIA DE FADE OPAC ===== */
+        animation: mobileOpaqueSlide 0.6s ease-out forwards;
+    }
+
+    /* ===== ANIMAȚIE FADE DE SUS ÎN JOS - DEVINE OPAC ===== */
+    @keyframes mobileOpaqueSlide {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        30% {
+            opacity: 0.4;
+            transform: translateY(-5px);
+        }
+        60% {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+        80% {
+            opacity: 0.9;
+            transform: translateY(0);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* ===== ELIMINĂ ORICE OVERLAY SAU BLUR ===== */
+    #menu-toggle:checked + .hamburger + nav::after {
+        display: none;
     }
 
     .main-menu li {
@@ -181,16 +231,37 @@
         display: block;
         width: 100%;
         padding: 12px 20px;
-        color: var(--color-text); /* Dark text for contrast */
+        color: var(--color-text);
         text-decoration: none;
         font-weight: bold;
         font-size: 1.2rem;
         transition: all 0.3s ease-in-out;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        margin: 2px 0;
+        background-color: transparent;
+    }
+
+    .main-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .main-menu a:hover::before {
+        left: 100%;
     }
 
     .main-menu a:hover {
-        background: var(--color-highlight); /* Light highlight for hover */
-        color: var(--color-text); /* Maintain dark text */
+        background: var(--color-highlight);
+        color: var(--color-text);
+        transform: translateX(5px);
     }
 
     .main-menu > li.home-btn a::before {
@@ -210,68 +281,101 @@
         padding: 12px 20px;
     }
 
+    /* ===== SUBOPȚIUNI CARE EXTIND MENIUL ÎN JOS ===== */
     .submenu {
         list-style: none;
         padding: 0;
         margin: 0;
-        position: static;
+        position: static; /* Parte din fluxul normal - extinde meniul */
         width: 100%;
-        background-color: var(--color-background); /* White-like, opaque background */
+        
+        /* ===== FUNDAL OPAC DIFERENȚIAT ===== */
+        background-color: rgba(255, 255, 255, 0.95);
+        
+        /* ===== PORNESC ASCUNSE ===== */
         max-height: 0;
         opacity: 0;
-        visibility: hidden;
-        border-radius: 5px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-        z-index: 10002; /* Above main-menu */
         overflow: hidden;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
-        transform: translateY(-10px); /* Start above for slide-down */
+        
+        border-radius: 8px;
+        border-left: 4px solid var(--color-primary);
+        margin-left: 15px;
+        margin-top: 0;
+        
+        /* ===== TRANZIȚIE RAPIDĂ PENTRU EXTENSIE ÎN JOS ===== */
+        transition: max-height 0.4s ease-out,
+                    opacity 0.3s ease-out 0.1s,
+                    margin-top 0.4s ease-out,
+                    padding 0.4s ease-out;
+        
+        box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     .main-menu li:hover > .submenu {
-        max-height: 500px;
+        /* ===== SE EXTIND RAPID ÎN JOS ===== */
+        max-height: 350px;
         opacity: 1;
-        visibility: visible;
-        transform: translateY(0); /* Slide to original position */
-        animation: submenu-slide 0.5s ease-in-out forwards;
+        margin-top: 8px;
+        padding: 10px 0;
+        
+        /* ===== ANIMAȚIA DE EXTENSIE ÎN JOS ===== */
+        animation: mobileSubmenuExpand 0.5s ease-out forwards;
+    }
+
+    /* ===== ANIMAȚIA DE EXTENSIE ÎN JOS PENTRU SUBOPȚIUNI ===== */
+    @keyframes mobileSubmenuExpand {
+        0% {
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-8px);
+            padding: 0;
+        }
+        40% {
+            max-height: 140px;
+            opacity: 0.6;
+            transform: translateY(-2px);
+            padding: 4px 0;
+        }
+        70% {
+            max-height: 280px;
+            opacity: 0.8;
+            transform: translateY(0);
+            padding: 8px 0;
+        }
+        100% {
+            max-height: 350px;
+            opacity: 1;
+            transform: translateY(0);
+            padding: 10px 0;
+        }
     }
 
     .submenu li {
         display: block;
         width: 100%;
-        margin: 2px 0;
+        margin: 1px 0;
     }
 
     .submenu a {
         display: block;
-        padding: 10px 20px 10px 40px;
+        padding: 8px 20px 8px 30px;
         text-align: left;
-        color: var(--color-primary); /* Primary color for contrast */
+        color: var(--color-primary);
         text-decoration: none;
         font-size: 1rem;
+        font-weight: normal;
         transition: all 0.3s ease-in-out;
+        border-radius: 6px;
+        background-color: transparent;
     }
 
     .submenu a:hover {
-        background: var(--color-highlight); /* Consistent hover effect */
-        color: var(--color-hover); /* Darker shade for hover */
+        background: var(--color-highlight);
+        color: var(--color-hover);
+        transform: translateX(12px);
     }
 
-    /* Submenu animation */
-    @keyframes submenu-slide {
-        0% {
-            opacity: 0;
-            transform: translateY(-10px);
-            max-height: 0;
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-            max-height: 500px;
-        }
-    }
-
-    /* Existing animations for hamburger menu */
+    /* Animații hamburger existente */
     @keyframes bar-appear {
         0% {
             transform: scaleX(0);

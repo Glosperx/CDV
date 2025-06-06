@@ -296,7 +296,7 @@ app.get(["/","/index","/home"], function(req, res){
     // Adăugăm toate parametrele care ar putea fi necesare în șabloane
     res.render("pagini/index", {
         ip: req.ip, 
-        imagini: obGlobal.obImagini.imagini,
+        imagini: obGlobal.obImagini ? obGlobal.obImagini.imagini : [],
         afisareToate: req.query && req.query.toate === "true"  // Pentru eventualele fragmente care folosesc acest parametru
     });
 })
@@ -313,7 +313,7 @@ app.get("/despre", function(req, res){
 app.get("/galerie", function(req, res) {
     const galerieData = {
         cale_galerie: "/resurse/imagini/galerie",
-        imagini: obGlobal.obImagini.imagini
+        imagini: obGlobal.obImagini ? obGlobal.obImagini.imagini : []
     };
     
     res.render("pagini/galerie", {
@@ -327,6 +327,8 @@ app.get("/galerie", function(req, res) {
 app.get("/index/a", function(req, res){
     // Modificat pentru a pasa parametrii necesari în șabloane
     res.render("pagini/index", {
+        ip: req.ip, 
+        imagini: obGlobal.obImagini ? obGlobal.obImagini.imagini : [],
         afisareToate: req.query && req.query.toate === "true" // Pentru eventualele fragmente care folosesc acest parametru
     });
 })
@@ -363,14 +365,16 @@ app.get("/produse", function(req, res){
     client.query("SELECT MIN(pret) as min_pret, MAX(pret) as max_pret, MIN(gramaj) as min_gramaj, MAX(gramaj) as max_gramaj FROM produse", function(err, resultMinMax) {
         if (err) {
             console.log(err);
-            renderError(res, 2);
+            // CORECTAT: înlocuit renderError cu afisareEroare
+            afisareEroare(res, 500, "Eroare bază de date", "Nu se pot încărca informațiile despre produse");
             return;
         }
         
         client.query("SELECT * FROM produse", function(err, result) {
             if (err) {
                 console.log(err);
-                renderError(res, 2);
+                // CORECTAT: înlocuit renderError cu afisareEroare
+                afisareEroare(res, 500, "Eroare bază de date", "Nu se pot încărca produsele");
                 return;
             }
 
@@ -416,8 +420,8 @@ app.get("/*ejs", function(req, res, next){
 app.listen(8080);
 console.log("Serverul ruleaza pe portul 8080");
 
-// BONUS 1
-app.get('/produse', function(req, res) {
+// BONUS 1 - CORECTAT și această secțiune
+app.get('/produse-bonus', function(req, res) {
     client.query("SELECT MIN(pret) as min_pret, MAX(pret) as max_pret, MIN(gramaj) as min_gramaj, MAX(gramaj) as max_gramaj FROM produse", function(err, result) {
         if (err) {
             console.log(err);
@@ -432,6 +436,7 @@ app.get('/produse', function(req, res) {
         client.query("SELECT * FROM produse", function(err, result) {
             if (err) {
                 console.log(err);
+                res.render('pagini/produse', {produse: [], minPret: 0, maxPret: 1000, minGramaj: 0, maxGramaj: 1000});
                 return;
             }
             res.render('pagini/produse', {

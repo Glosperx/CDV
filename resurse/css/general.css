@@ -677,3 +677,39 @@ main a:hover {
     background-color: var(--color-secondary);
     color: var(--color-text);
 }
+
+
+/* BONUS VIDEO */
+/* Container video responsiv */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: var(--spacing-md) 0;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--umbra-standard);
+}
+
+/* Stilizare element video */
+#demo-video {
+  width: 100%;
+  max-width: 900px; /* Latime maxima */
+  min-width: 300px; /* Latime minima */
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--maro-mediu);
+  background-color: var(--maro-deschis);
+}
+
+/* Stilizare subtitluri VTT */
+::cue {
+  background-color: rgba(45, 26, 25, 0.8); /* Culoare inchisa din schema site-ului (maro-inchis) */
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: normal;
+  text-align: left;
+}

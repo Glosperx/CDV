@@ -1,0 +1,143 @@
+/* Modal styling */
+.modal-produse {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-produse.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--color-background, #FFF);
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--color-text, #333);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-hover, #C05F3E);
+}
+
+.modal-content h3 {
+    background-color: var(--color-primary, #6B3E31);
+    color: var(--color-background, #FFF);
+    padding: 0.8rem;
+    border-radius: 6px 6px 0 0;
+    margin: -2rem -2rem 1rem -2rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.modal-body figure {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-info {
+    flex: 2;
+    min-width: 200px;
+}
+
+.modal-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--color-text, #333);
+}
+
+.modal-info p strong {
+    color: var(--color-primary, #6B3E31);
+}
+
+/* Tema întunecată */
+.theme-dark .modal-content {
+    background-color: #2D1A19;
+    border-color: #4A2C2A;
+}
+
+.theme-dark .modal-content h3 {
+    background-color: #4A2C2A;
+}
+
+.theme-dark .modal-info p {
+    color: #D8C9A7;
+}
+
+.theme-dark .modal-close {
+    color: #D8C9A7;
+}
+
+.theme-dark .modal-close:hover {
+    color: var(--color-hover, #C05F3E);
+}
+
+/* Animații */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive design */
+@media screen and (max-width: 576px) {
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .modal-content h3 {
+        font-size: 1.2rem;
+        margin: -1rem -1rem 1rem -1rem;
+    }
+
+    .modal-body {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .modal-info p {
+        font-size: 0.9rem;
+    }
+}
