@@ -44,7 +44,7 @@ class DarkModeManager {
 
     const toggleButton = document.createElement('button')
     toggleButton.id = 'dark-mode-toggle'
-    toggleButton.className = 'fixed top-4 right-4 z-50 bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:scale-110'
+    toggleButton.className = 'fixed top-20 right-4 z-[20] bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-600 hover:scale-110'
     toggleButton.setAttribute('aria-label', 'Toggle dark mode')
     toggleButton.innerHTML = `
       <svg class="w-5 h-5 sun-icon hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
