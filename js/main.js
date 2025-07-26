@@ -9,6 +9,28 @@ class CDVPrintSite {
     this.setupSmoothScrolling()
     this.setupContactButtons()
     this.setupScrollEffects()
+    this.updateCopyrightYear()
+  }
+
+  // Actualizare automată a anului în footer
+  updateCopyrightYear() {
+    const currentYear = new Date().getFullYear()
+    const copyrightElements = document.querySelectorAll('[data-copyright-year]')
+    
+    copyrightElements.forEach(element => {
+      element.textContent = element.textContent.replace(/© \d{4}/, `© ${currentYear}`)
+    })
+
+    // Fallback pentru cazul în care nu există data-copyright-year
+    const footerText = document.querySelector('footer .text-gray-400')
+    if (footerText) {
+      const spans = footerText.querySelectorAll('span')
+      spans.forEach(span => {
+        if (span.textContent.includes('©')) {
+          span.textContent = `© ${currentYear} CDV Print`
+        }
+      })
+    }
   }
 
   // Gestionare meniu mobil
@@ -19,7 +41,7 @@ class CDVPrintSite {
     if (mobileMenuBtn && mobileMenu) {
       mobileMenuBtn.addEventListener("click", () => {
         mobileMenu.classList.toggle("hidden")
-
+        
         // Schimbă iconița meniului
         const icon = mobileMenuBtn.querySelector("svg path")
         if (mobileMenu.classList.contains("hidden")) {
@@ -85,11 +107,11 @@ class CDVPrintSite {
     if (whatsappBtn) {
       whatsappBtn.addEventListener("click", () => {
         const message = encodeURIComponent(
-          "Salut! Sunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre serviciile oferite.",
+          "Salut! Sunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre serviciile oferite."
         )
         const whatsappUrl = `https://wa.me/${contactData.whatsapp}?text=${message}`
         window.open(whatsappUrl, "_blank")
-
+        
         // Analytics tracking (opțional)
         this.trackContactAction("whatsapp")
       })
@@ -101,11 +123,10 @@ class CDVPrintSite {
       emailBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii \nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii \nVă mulțumesc!\n\nCu stimă,"
         )
         const emailUrl = `mailto:${contactData.email}?cc=doru.cojoaca@gmail.com&subject=${subject}&body=${body}`
         window.location.href = emailUrl
-
         this.trackContactAction("email")
       })
     }
@@ -125,11 +146,10 @@ class CDVPrintSite {
       emailSecondaryBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre un proiect.\n\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre un proiect.\n\nVă mulțumesc!\n\nCu stimă,"
         )
         const emailUrl = `mailto:doru.cojoaca@gmail.com?cc=office@cdvprint.ro&subject=${subject}&body=${body}`
         window.location.href = emailUrl
-
         this.trackContactAction("email_secondary")
       })
     }
@@ -151,13 +171,13 @@ class CDVPrintSite {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const currentId = entry.target.getAttribute("id")
-
+          
           // Elimină clasa activă de la toate linkurile
           navLinks.forEach((link) => {
             link.classList.remove("text-primary-blue", "font-bold")
             link.classList.add("text-gray-700")
           })
-
+          
           // Adaugă clasa activă la linkul curent
           const activeLink = document.querySelector(`nav a[href="#${currentId}"]`)
           if (activeLink) {
@@ -186,7 +206,7 @@ class CDVPrintSite {
       {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
-      },
+      }
     )
 
     cards.forEach((card) => {
@@ -201,7 +221,7 @@ class CDVPrintSite {
   trackContactAction(action) {
     // Poți integra cu Google Analytics sau alt serviciu
     console.log(`Contact action: ${action}`)
-
+    
     // Exemplu pentru Google Analytics (dacă îl folosești)
     if (window.gtag) {
       window.gtag("event", "contact_action", {
@@ -212,29 +232,28 @@ class CDVPrintSite {
     }
   }
 
-  // Funcție pentru afișarea unui toast message (opțional)
-  showToast(message, type = "info") {
-    const toast = document.createElement("div")
-    toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white transition-all duration-300 transform translate-x-full ${
-      type === "success" ? "bg-green-500" : type === "error" ? "bg-red-500" : "bg-blue-500"
-    }`
-    toast.textContent = message
+  // // Funcție pentru afișarea unui toast message (opțional)
+  // showToast(message, type = "info") {
+  //   const toast = document.createElement("div")
+  //   toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white transition-all duration-300 transform translate-x-full ${
+  //     type === "success" ? "bg-green-500" : type === "error" ? "bg-red-500" : "bg-blue-500"
+  //   }`
+  //   toast.textContent = message
+  //   document.body.appendChild(toast)
 
-    document.body.appendChild(toast)
+  //   // Animație de intrare
+  //   setTimeout(() => {
+  //     toast.classList.remove("translate-x-full")
+  //   }, 100)
 
-    // Animație de intrare
-    setTimeout(() => {
-      toast.classList.remove("translate-x-full")
-    }, 100)
-
-    // Eliminare automată după 3 secunde
-    setTimeout(() => {
-      toast.classList.add("translate-x-full")
-      setTimeout(() => {
-        document.body.removeChild(toast)
-      }, 300)
-    }, 3000)
-  }
+  //   // Eliminare automată după 3 secunde
+  //   setTimeout(() => {
+  //     toast.classList.add("translate-x-full")
+  //     setTimeout(() => {
+  //       document.body.removeChild(toast)
+  //     }, 300)
+  //   }, 3000)
+  // }
 }
 
 // Inițializare când DOM-ul este gata
@@ -250,7 +269,6 @@ window.CDVPrint = {
     if (target) {
       const headerHeight = document.querySelector("header").offsetHeight
       const targetPosition = target.offsetTop - headerHeight - 20
-
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",
@@ -268,8 +286,10 @@ window.CDVPrint = {
   // Funcție pentru deschiderea email-ului cu subiect personalizat
   openEmail: (subject, body) => {
     const emailSubject = encodeURIComponent(subject || "Solicitare informații - CDV Print")
-    const emailBody = encodeURIComponent(body || "Bună ziua,\n\nSunt interessat de serviciile CDV Print.\n\nCu stimă,")
+    const emailBody = encodeURIComponent(
+      body || "Bună ziua,\n\nSunt interessat de serviciile CDV Print.\n\nCu stimă,"
+    )
     const emailUrl = `mailto:office@cdvprint.ro?cc=doru.cojoaca@gmail.com&subject=${emailSubject}&body=${emailBody}`
     window.location.href = emailUrl
-  },
+  }
 }
