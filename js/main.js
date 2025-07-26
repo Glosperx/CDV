@@ -260,7 +260,7 @@ window.CDVPrint = {
 
   // Funcție pentru deschiderea WhatsApp cu mesaj personalizat
   openWhatsApp: (customMessage) => {
-    const message = encodeURIComponent(customMessage || "Salut! Sunt interessat de serviciile CDV Print.")
+    const message = encodeURIComponent(customMessage || "Salut! As dori mai multe informații.")
     const whatsappUrl = `https://wa.me/40723348280?text=${message}`
     window.open(whatsappUrl, "_blank")
   },

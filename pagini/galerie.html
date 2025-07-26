@@ -25,16 +25,16 @@
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center md:justify-center md:relative">
                 <div class="flex items-center md:absolute md:left-0">
-                    <a href="index.html" class="bg-primary-blue text-white px-4 py-2 rounded-lg font-bold text-xl">
+                    <a href="../index.html" class="bg-primary-blue text-white px-4 py-2 rounded-lg font-bold text-xl">
                         CDV Print
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Acasă</a>
-                    <a href="index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Servicii</a>
-                    <a href="index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Produse</a>
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Acasă</a>
+                    <a href="../index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Servicii</a>
+                    <!-- <a href="../index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Produse</a> -->
                     <a href="galerie.html" class="text-primary-blue font-bold">Galerie</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Contact</a>
                 </nav>
@@ -50,9 +50,9 @@
             <!-- Mobile Menu -->
             <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <div class="flex flex-col space-y-3">
-                    <a href="index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Acasă</a>
-                    <a href="index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Servicii</a>
-                    <a href="index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Produse</a>
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Acasă</a>
+                    <a href="../index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Servicii</a>
+                    <a href="../index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Produse</a>
                     <a href="galerie.html" class="text-primary-blue font-bold py-2 px-4 rounded bg-blue-50">Galerie</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Contact</a>
                 </div>
@@ -70,264 +70,169 @@
         </div>
     </section>
 
-    <!-- Filtre -->
-    <section class="py-8 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
-                <button class="filter-btn active bg-primary-blue text-white px-6 py-2 rounded-full font-medium transition-colors" data-filter="all">
-                    Toate
-                </button>
-                <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium border hover:bg-primary-blue hover:text-white transition-colors" data-filter="branding">
-                    Branding
-                </button>
-                <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium border hover:bg-primary-blue hover:text-white transition-colors" data-filter="print">
-                    Materiale Print
-                </button>
-                <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium border hover:bg-primary-blue hover:text-white transition-colors" data-filter="packaging">
-                    Ambalaje
-                </button>
-                <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full font-medium border hover:bg-primary-blue hover:text-white transition-colors" data-filter="promotional">
-                    Materiale Promoționale
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Galeria -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div id="gallery" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
                 <!-- Casa Pariurilor -->
-                <div class="gallery-item branding" data-category="branding">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/casa_pariurilor.png" alt="Casa Pariurilor - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Casa Pariurilor</h3>
-                            <p class="text-gray-600 text-sm">Branding și identitate vizuală</p>
+                            <img src="../resurse/imagini/poze/casa_pariurilor.png" alt="Casa Pariurilor - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- HerWatch -->
-                <div class="gallery-item branding" data-category="branding">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/herwatch.png" alt="HerWatch - Design ceas" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">HerWatch</h3>
-                            <p class="text-gray-600 text-sm">Design produs și branding</p>
+                            <img src="../resurse/imagini/poze/herwatch.png" alt="HerWatch - Design ceas" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Awards -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/awards.png" alt="Awards - Album premium" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Awards</h3>
-                            <p class="text-gray-600 text-sm">Album premium, plastifiere</p>
+                            <img src="../resurse/imagini/poze/awards.png" alt="Awards - Album premium" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Ceder -->
-                <div class="gallery-item packaging" data-category="packaging">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/ceder.png" alt="Ceder - Ambalaj" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Ceder</h3>
-                            <p class="text-gray-600 text-sm">Ambalaj carton, lacuire UV</p>
+                            <img src="../resurse/imagini/poze/ceder.png" alt="Ceder - Ambalaj" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Calendar -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/calendar.png" alt="Calendar personalizat" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Calendar Personalizat</h3>
-                            <p class="text-gray-600 text-sm">Tipărire offset, finisare premium</p>
+                            <img src="../resurse/imagini/poze/calendar.png" alt="Calendar personalizat" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Protecții Industriale -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/protectii_industriale.png" alt="Protecții industriale - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Protecții Industriale</h3>
-                            <p class="text-gray-600 text-sm">Catalog produse, brosare</p>
+                            <img src="../resurse/imagini/poze/protectii_industriale.png" alt="Protecții industriale - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Manual -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/manual.png" alt="Manual tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Manual Tehnic</h3>
-                            <p class="text-gray-600 text-sm">Tipărire tehnică, legare</p>
+                            <img src="../resurse/imagini/poze/manual.png" alt="Manual tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Market Watch -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/market_watch.png" alt="Market Watch - Revistă" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Market Watch</h3>
-                            <p class="text-gray-600 text-sm">Revistă, tipărire offset</p>
+                            <img src="../resurse/imagini/poze/market_watch.png" alt="Market Watch - Revistă" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Fermieri -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/fermieri.png" alt="Fermieri - Broșură" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Fermieri</h3>
-                            <p class="text-gray-600 text-sm">Broșură informativă</p>
+                            <img src="../resurse/imagini/poze/fermieri.png" alt="Fermieri - Broșură" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Frane -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/frane.png" alt="Frane - Catalog tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Frane</h3>
-                            <p class="text-gray-600 text-sm">Catalog tehnic auto</p>
+                            <img src="../resurse/imagini/poze/frane.png" alt="Frane - Catalog tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Irigații -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/irigatii.png" alt="Irigații - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Irigații</h3>
-                            <p class="text-gray-600 text-sm">Catalog sisteme irigații</p>
+                            <img src="../resurse/imagini/poze/irigatii.png" alt="Irigații - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- CIJ -->
-                <div class="gallery-item branding" data-category="branding">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/cij.png" alt="CIJ - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">CIJ</h3>
-                            <p class="text-gray-600 text-sm">Corporate identity</p>
+                            <img src="../resurse/imagini/poze/cij.png" alt="CIJ - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Dialog -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/dialog.png" alt="Dialog - Publicație" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Dialog</h3>
-                            <p class="text-gray-600 text-sm">Publicație de specialitate</p>
+                            <img src="../resurse/imagini/poze/dialog.png" alt="Dialog - Publicație" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Succes -->
-                <div class="gallery-item print" data-category="print">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/succes.png" alt="Succes - Revistă business" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Succes</h3>
-                            <p class="text-gray-600 text-sm">Revistă business</p>
+                            <img src="../resurse/imagini/poze/succes.png" alt="Succes - Revistă business" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- T&T -->
-                <div class="gallery-item branding" data-category="branding">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/tt.png" alt="T&T - Logo design" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">T&T</h3>
-                            <p class="text-gray-600 text-sm">Logo design și branding</p>
+                            <img src="../resurse/imagini/poze/tt.png" alt="T&T - Logo design" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- A. Coman -->
-                <div class="gallery-item branding" data-category="branding">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/a_coman.png" alt="A. Coman - Identitate vizuală" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">A. Coman</h3>
-                            <p class="text-gray-600 text-sm">Identitate vizuală personală</p>
+                            <img src="../resurse/imagini/poze/a_coman.png" alt="A. Coman - Identitate vizuală" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Messi -->
-                <div class="gallery-item promotional" data-category="promotional">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/messi.png" alt="Messi - Material promoțional" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Messi</h3>
-                            <p class="text-gray-600 text-sm">Material promoțional sport</p>
+                            <img src="../resurse/imagini/poze/messi.png" alt="Messi - Material promoțional" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
 
                 <!-- Random -->
-                <div class="gallery-item promotional" data-category="promotional">
+                <div class="gallery-item">
                     <div class="group cursor-pointer">
                         <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="/resurse/imagini/galerie/random.png" alt="Random - Design creativ" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="mt-4">
-                            <h3 class="text-lg font-semibold">Random</h3>
-                            <p class="text-gray-600 text-sm">Design creativ, concept</p>
+                            <img src="../resurse/imagini/poze/random.png" alt="Random - Design creativ" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                     </div>
                 </div>
@@ -357,7 +262,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <div class="mb-4">
-                    <a href="index.html" class="bg-white text-primary-blue px-6 py-3 rounded-lg font-bold text-2xl inline-block">
+                    <a href="../index.html" class="bg-white text-primary-blue px-6 py-3 rounded-lg font-bold text-2xl inline-block">
                         CDV Print
                     </a>
                 </div>
@@ -365,7 +270,7 @@
                     Agenție de materiale publicitare - Calitate superioară pentru proiectele dumneavoastră
                 </p>
                 <div class="flex justify-center space-x-6 text-sm">
-                    <span>© 2024 CDV Print</span>
+                    <span>© 2025 CDV Print</span>
                     <span>•</span>
                     <span>Toate drepturile rezervate</span>
                 </div>
@@ -374,7 +279,7 @@
     </footer>
 
     <!-- JavaScript pentru galerie -->
-    <script src="script.js"></script>
-    <script src="gallery.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/gallery.js"></script>
 </body>
 </html>
