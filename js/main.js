@@ -101,7 +101,7 @@ class CDVPrintSite {
       emailBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii despre:\n\n- Serviciile disponibile\n- Prețuri și condiții\n- Termene de livrare\n\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii \nVă mulțumesc!\n\nCu stimă,",
         )
         const emailUrl = `mailto:${contactData.email}?cc=doru.cojoaca@gmail.com&subject=${subject}&body=${body}`
         window.location.href = emailUrl
