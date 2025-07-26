@@ -101,9 +101,9 @@ class CDVPrintSite {
       emailBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii despre:\n\n- Serviciile disponibile\n- Prețuri și condiții\n- Termene de livrare\n\nVă mulțumesc!\n\nCu stimă,",
         )
-        const emailUrl = `mailto:${contactData.email}?subject=${subject}&body=${body}`
+        const emailUrl = `mailto:${contactData.email}?cc=doru.cojoaca@gmail.com&subject=${subject}&body=${body}`
         window.location.href = emailUrl
 
         this.trackContactAction("email")
@@ -125,9 +125,9 @@ class CDVPrintSite {
       emailSecondaryBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii pentru un proiect.\n\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre un proiect.\n\nVă mulțumesc!\n\nCu stimă,",
         )
-        const emailUrl = `mailto:doru.cojoaca@gmail.com?subject=${subject}&body=${body}`
+        const emailUrl = `mailto:doru.cojoaca@gmail.com?cc=office@cdvprint.ro&subject=${subject}&body=${body}`
         window.location.href = emailUrl
 
         this.trackContactAction("email_secondary")
@@ -269,7 +269,7 @@ window.CDVPrint = {
   openEmail: (subject, body) => {
     const emailSubject = encodeURIComponent(subject || "Solicitare informații - CDV Print")
     const emailBody = encodeURIComponent(body || "Bună ziua,\n\nSunt interessat de serviciile CDV Print.\n\nCu stimă,")
-    const emailUrl = `mailto:office@cdvprint.ro?subject=${emailSubject}&body=${emailBody}`
+    const emailUrl = `mailto:office@cdvprint.ro?cc=doru.cojoaca@gmail.com&subject=${emailSubject}&body=${emailBody}`
     window.location.href = emailUrl
   },
 }
