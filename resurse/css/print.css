@@ -1,0 +1,116 @@
+@media print {
+  body {
+    font-family: serif;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  /* Eliminăm regula originală care adăuga banner-ul peste tot */
+  /* footer small:first-of-type::before {
+    content: "Acesta este un proiect școlar!";
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border: 3px double #000;
+    box-sizing: border-box;
+    z-index: 1000;
+  } */
+
+  img,
+  video,
+  iframe,
+  audio,
+  object,
+  embed,
+  .descriere-imagine,
+  .media-related,
+  a[href="#top"],
+  a[href^="#"] {
+    display: none !important;
+  }
+
+  .grid,
+  [class*="grid"],
+  [class*="row"],
+  [class*="col"] {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 2cm;
+    page-break-after: avoid;
+  }
+
+  nav ul {
+    display: block !important;
+    page-break-after: always;
+  }
+
+  nav li {
+    display: block !important;
+    margin-bottom: 0.5em;
+  }
+
+  nav ul ul {
+    margin-left: 2em;
+    page-break-after: avoid;
+  }
+
+  footer {
+    page-break-before: always;
+  }
+
+  body::after {
+    content: "Cojoaca\A Alexandru";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 10%;
+    z-index: -1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24pt;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    white-space: pre;
+    z-index: 99999;
+  }
+
+  @page :left {
+    margin-left: 2cm;
+    margin-right: 1cm;
+  }
+
+  @page :right {
+    margin-left: 1cm;
+    margin-right: 2cm;
+  }
+
+
+  @page :first {
+    @top-right {
+      content: "Acesta este un proiect școlar!";
+      width: 50%;
+      text-align: center;
+      padding: 10px;
+      border: 3px double #000;
+      box-sizing: border-box;
+      font-family: serif;
+    }
+  }
+}

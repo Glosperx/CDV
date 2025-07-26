@@ -1,0 +1,715 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Light theme (default) */
+:root {
+    --page-padding: 20px;
+    --grid-gap: 20px;
+    --zone-padding: 20px;
+    --color-primary: #5997D9;
+    --color-hover: #3973A8;
+    --color-text: #374957;
+    --color-background: #F8F9FA;
+    --color-secondary: #EAEFF5;
+    --color-highlight: #AACFF5;
+    --visited-color: #6b21a8;
+    --highlight-color: #AACFF5;
+    --text-shadow: none;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --color-background: #1a1f25;
+    --color-primary: #5997D9;
+    --color-hover: #7DB0E8;
+    --color-text: #E8F1F8;
+    --color-secondary: #2a3947;
+    --color-highlight: #7DB0E8;
+    --visited-color: #B784ED;
+    --highlight-color: #3973A8;
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Text visibility improvements */
+[data-theme="dark"] #faq,
+[data-theme="dark"] #about,
+[data-theme="dark"] #services,
+[data-theme="dark"] #motivatie {
+    background-color: #2a3947;
+    color: #E8F1F8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] p {
+    color: #E8F1F8;
+    text-shadow: var(--text-shadow);
+}
+
+[data-theme="dark"] #faq h3,
+[data-theme="dark"] #about h3,
+[data-theme="dark"] #services h3,
+[data-theme="dark"] #motivatie h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+[data-theme="dark"] #faq p,
+[data-theme="dark"] #about p,
+[data-theme="dark"] #services p,
+[data-theme="dark"] #motivatie p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+[data-theme="dark"] section {
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Base styles */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure all text is readable */
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    color: var(--color-text);
+    text-shadow: var(--text-shadow);
+}
+
+/* Fix background issues */
+main, section, article, div {
+    background-color: var(--color-background);
+}
+
+/* Ensure proper contrast for links */
+a {
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-hover);
+}
+
+/* Add transitions for smooth theme switching */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+    body {
+        --page-padding: 20px;
+        --grid-gap: 25px;
+    }
+}
+
+@media (max-width: 750px) {
+    body {
+        --page-padding: 15px;
+        --grid-gap: 15px;
+    }
+}
+
+header {
+    background-color:var(--color-background);
+    border-bottom: 2px solid #3b82f6;
+    box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+    grid-area: header;
+}
+
+header h1 {
+    font-size: 2.5em;
+    /* font-weight: bold; */
+    margin-bottom: 10px;
+    text-align: center;
+}
+h2{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+h3{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: var(--color-hover);
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    list-style: none;
+    border-radius: 5px;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    margin: 5px 0;
+}
+
+#grid_pag {
+    display: grid;
+    grid-template-columns: 30% 20% 20% 30%;
+    grid-template-areas:
+        "header header header header"
+        "prezentare prezentare prezentare prezentare"
+        "about motivatie motivatie gallery"
+        "videos motivatie motivatie gallery"
+        "tabel scop services services"
+        "map map map map"
+        "faq faq faq faq"
+        "download download download download"
+        "footer footer footer footer";
+    gap: 5px;
+    background-color:var(--color-background);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.1);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+    min-height: 100vh;
+}
+
+#prezentare {
+    grid-area: prezentare;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#about {
+    grid-area: about;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#motivatie {
+    grid-area: motivatie;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#gallery {
+    grid-area: gallery;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#videos {
+    grid-area: videos;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#scop {
+    grid-area: scop;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#services {
+    grid-area: services;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+    grid-area: map;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#faq {
+    grid-area: faq;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+#tabel {
+    grid-area: tabel;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#tabel table {
+    border-collapse: collapse;
+    border: 5px inset var(--color-text);
+    width: 100%;
+    min-width: 600px;
+}
+
+#tabel th, 
+#tabel td {
+    padding: 10px;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+#tabel tbody tr:nth-child(even) {
+    border-bottom-color: var(--color-primary);
+}
+
+#tabel tbody tr:nth-child(odd) {
+    border-bottom-color: var(--color-hover);
+}
+
+#tabel tr {
+    transition: outline 0.5s ease;
+}
+
+#tabel tr:hover {
+    outline: 5px solid rgba(55, 73, 87, 0.7);
+}
+
+#tabel caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-style: italic;
+    color: var(--color-text);
+}
+
+#tabel thead {
+    background-color: var(--color-primary);
+    color: var(--color-highlight);
+}
+
+#tabel tfoot {
+    background-color: var(--color-highlight);
+}
+
+#download {
+    grid-area: download;
+    background-color: var(--color-secondary);
+    padding: var(--zone-padding);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+footer {
+    grid-area: footer;
+    background-color:var(--color-background);
+    border-top: 2px solid var(--color-highlight);
+    box-shadow: 0 -2px 4px rgba(30, 64, 175, 0.2);
+    border-radius: 10px;
+    padding: var(--zone-padding);
+}
+
+#gallery img,
+#services embed,
+iframe {
+    width: 100%;
+    max-width: 800px;
+    min-width: 200px;
+    height: auto;
+}
+
+iframe {
+    display: flex;
+    margin: 20px auto;
+    border-radius: 8px;
+    border: 2px solid --color-background;
+}
+
+.container-iframe {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 0px; 
+    margin-top: 20px;
+}
+
+.taburi-iframe {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+}
+
+.taburi-iframe a {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+    text-decoration: none;
+    background-color: var(--color-secondary);
+    color: var(--color-highlight);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.taburi-iframe a:hover {
+    background-color: var(--color-hover);
+}
+
+main img[src="./resurse/imagini/2v2.png"] {
+    width: 100%;
+    max-width: 1155px;
+    min-width: 300px;
+    height: auto;
+}
+
+@media (max-width: 1200px) {
+    #gallery img,
+    #services embed,
+    footer iframe {
+        max-width: 600px;
+        min-width: 150px;
+    }
+    main img[src="./resurse/imagini/2v2.png"] {
+        max-width: 800px;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 750px) {
+    #gallery img,
+    #services embed,
+    footer iframe {
+        max-width: 400px;
+        min-width: 100px;
+    }
+    main img[src="./resurse/imagini/2v2.png"] {
+        max-width: 500px;
+        min-width: 400px;
+        height: auto;
+    }
+
+    #grid_pag {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "prezentare"
+            "about"
+            "videos"
+            "motivatie"
+            "gallery"
+            "scop"
+            "tabel"
+            "services"
+            "map"
+            "faq"
+            "download"
+            "footer";
+        gap: 5px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li ul {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+#link-top {
+    position: fixed;
+    bottom: 0.3em;
+    right: 0.3em;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    box-sizing: border-box;
+    border: 5px solid var(--color-text);
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+#link-top:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    background-color: var(--color-highlight);
+}
+
+#link-top::after {
+    content: "↑";
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(89, 151, 217, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(89, 151, 217, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(89, 151, 217, 0);
+    }
+}
+
+
+math {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.1em;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
+mtext {
+    color: var(--color-text);
+    font-style: italic;
+}
+
+mn {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+mo {
+    color: var(--color-hover);
+    font-size: 1.2em;
+}
+
+mfrac {
+    color: var(--color-highlight);
+    padding: 2px;
+    border: 1px solid var(--color-primary);
+    border-radius: 3px;
+    
+}
+
+msup {
+    color: var(--color-secondary);
+    background-color: var(--color-background);
+    padding: 2px 4px;
+    border-radius: 2px;
+    display: inline;
+}
+
+mspace {
+    display: inline-block;
+}
+
+a:visited {
+    color: var(--visited-color);
+}
+
+a[href^="http"]::before {
+    content: "⮳";
+    font-size: 1.5em;
+    margin-right: 0.2em;
+}
+
+a[href^="http"]:hover::before {
+    color: var(--color-hover);
+}
+
+main a {
+    position: relative;
+    text-decoration: none;
+    background-image: radial-gradient(
+        circle,
+        var(--highlight-color) 0%,
+        var(--highlight-color) 40%,
+        transparent 80%,
+        transparent 100%
+    );
+    background-position: center;
+    background-size: 0% 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+}
+
+main a:hover {
+    background-size: 100% 100%;
+}
+
+#video-vtt {
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  video::cue {
+    background-color: rgba(0, 0, 0, 0.75); 
+    color: white;                         
+    text-align: left;                     
+    font-size: 1rem;
+  }
+
+.form-floating {
+    z-index: 1; /* Asigură-te că e sub submeniu */
+}
+
+/* Submeniul tău probabil are z-index: 2 sau mai mare */
+.submenu {
+    z-index: 2;
+}
+
+
+/*BONUS 3 - Mesaj pentru utilizator când nu există produse*/
+.mesaj-niciun-produs {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] .mesaj-niciun-produs {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+
+/* BONUS VIDEO */
+/* Container video responsiv */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: var(--spacing-md) 0;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--umbra-standard);
+}
+
+/* Stilizare element video */
+#demo-video {
+  width: 100%;
+  max-width: 900px; /* Latime maxima */
+  min-width: 300px; /* Latime minima */
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--maro-mediu);
+  background-color: var(--maro-deschis);
+}
+
+/* Stilizare subtitluri VTT */
+::cue {
+  background-color: rgba(45, 26, 25, 0.8); /* Culoare inchisa din schema site-ului (maro-inchis) */
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: normal;
+  text-align: left;
+}

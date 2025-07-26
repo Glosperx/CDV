@@ -1,0 +1,95 @@
+#galerie-statica {
+    width: 100%;
+    padding-left: var(--padding-intern);
+    padding-right: var(--padding-intern);
+}
+
+#grid-galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5em;
+    counter-reset: nrimag;
+}
+
+#grid-galerie figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#grid-galerie img {
+    width: 100%;
+    display: block;
+    filter: brightness(50%);
+    transition: filter 1.2s ease;
+}
+
+#grid-galerie figcaption {
+    text-align: center;
+    counter-increment: nrimag;
+    margin-top: 0.5em;
+    color: black;
+    transition: color 1.2s ease, text-shadow 1.2s ease;
+}
+
+#grid-galerie figcaption::before {
+    content: counter(nrimag, lower-roman) ". ";
+}
+
+/* Zigzag pattern: show images in black positions */
+#grid-galerie figure:nth-child(6n+2),
+#grid-galerie figure:nth-child(6n+3),
+#grid-galerie figure:nth-child(6n+4),
+#grid-galerie figure:nth-child(6n+5),
+#grid-galerie figure:nth-child(6n+8),
+#grid-galerie figure:nth-child(6n+9) {
+    display: block;
+    background-color: #000; /* Images */
+}
+
+#grid-galerie figure:nth-child(6n+1),
+#grid-galerie figure:nth-child(6n+6),
+#grid-galerie figure:nth-child(6n+7) {
+    display: none;
+    background-color: #fff; /* Empty spaces */
+}
+
+/* Hover effects */
+#grid-galerie figure:hover img {
+    filter: brightness(100%);
+}
+
+#grid-galerie figure:hover figcaption {
+    color: #e63946;
+    text-shadow: 0 0 10px rgba(230, 57, 70, 0.7);
+}
+
+/* Responsive: medium */
+@media screen and (max-width: 1200px) {
+    #grid-galerie {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0;
+    }
+    #grid-galerie figure:nth-child(4n+2),
+    #grid-galerie figure:nth-child(4n+3) {
+        display: block;
+    }
+    #grid-galerie figure:nth-child(4n+1),
+    #grid-galerie figure:nth-child(4n+4) {
+        display: none;
+    }
+}
+
+/* Responsive: small */
+@media screen and (max-width: 750px) {
+    #grid-galerie {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+    #grid-galerie figure:nth-child(2n) {
+        display: block;
+    }
+    #grid-galerie figure:nth-child(2n+1) {
+        display: none;
+    }
+}

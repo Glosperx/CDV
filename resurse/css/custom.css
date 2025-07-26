@@ -1,0 +1,152 @@
+.cdv-card {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cdv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.cdv-card .card-header {
+  background-color: #5997D9;
+  color: white;
+  padding: 1rem;
+}
+.cdv-card .card-body {
+  padding: 1.5rem;
+}
+
+.cdv-btn {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.cdv-btn.cdv-btn-primary {
+  background-color: #5997D9;
+  border-color: #5997D9;
+  color: white;
+}
+.cdv-btn.cdv-btn-primary:hover {
+  background-color: rgb(47.5, 125, 207.5);
+  border-color: rgb(47.5, 125, 207.5);
+}
+.cdv-btn.cdv-btn-secondary {
+  background-color: #EAEFF5;
+  border-color: #EAEFF5;
+  color: #374957;
+}
+.cdv-btn.cdv-btn-secondary:hover {
+  background-color: rgb(199.4516129032, 212.6774193548, 228.5483870968);
+  border-color: rgb(199.4516129032, 212.6774193548, 228.5483870968);
+}
+
+.alt-theme {
+  --bs-primary: #6A1B9A;
+  --bs-secondary: #F3E5F5;
+  --bs-success: #558B2F;
+  --bs-info: #0277BD;
+  --bs-warning: #FF8F00;
+  --bs-danger: #C62828;
+  --bs-light: #FAFAFA;
+  --bs-dark: #37474F;
+}
+.alt-theme .btn-primary {
+  background-color: #6A1B9A;
+  border-color: #6A1B9A;
+}
+.alt-theme .btn-primary:hover {
+  background-color: rgb(76.1325966851, 19.3922651934, 110.6077348066);
+  border-color: rgb(76.1325966851, 19.3922651934, 110.6077348066);
+}
+.alt-theme .card-header {
+  background-color: #6A1B9A;
+}
+
+#grid_pag {
+  display: grid;
+  grid-template-columns: 30% 20% 20% 30%;
+  grid-template-areas: "header header header header" "prezentare prezentare prezentare prezentare" "about motivatie motivatie gallery" "videos motivatie motivatie gallery" "tabel scop services services" "map map map map" "faq faq faq faq" "download download download download" "footer footer footer footer";
+  gap: 5px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 2px 6px rgba(30, 64, 175, 0.1);
+  border-radius: 10px;
+  padding: var(--zone-padding);
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--color-background);
+  border-bottom: 2px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+  border-radius: 10px;
+  padding: var(--zone-padding);
+  grid-area: header;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: var(--color-hover);
+}
+
+@media (max-width: 1100px) {
+  .container {
+    max-width: 95%;
+  }
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 800px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .cdv-card {
+    margin-bottom: 1rem;
+  }
+}
+#tabel {
+  overflow-x: auto;
+}
+#tabel table {
+  width: 100%;
+}
+
+footer {
+  margin-top: 2rem;
+}
