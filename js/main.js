@@ -85,7 +85,7 @@ class CDVPrintSite {
     if (whatsappBtn) {
       whatsappBtn.addEventListener("click", () => {
         const message = encodeURIComponent(
-          "Salut! Sunt interessat de serviciile CDV Print. Aș dori să aflu mai multe informații despre tipărire și materiale publicitare.",
+          "Salut! Sunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii despre serviciile oferite.",
         )
         const whatsappUrl = `https://wa.me/${contactData.whatsapp}?text=${message}`
         window.open(whatsappUrl, "_blank")
@@ -101,7 +101,7 @@ class CDVPrintSite {
       emailBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe informații despre:\n\n- Tipărire offset\n- Materiale publicitare\n- Prețuri și termene de livrare\n\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să primesc mai multe detalii\nVă mulțumesc!\n\nCu stimă,",
         )
         const emailUrl = `mailto:${contactData.email}?subject=${subject}&body=${body}`
         window.location.href = emailUrl
@@ -125,7 +125,7 @@ class CDVPrintSite {
       emailSecondaryBtn.addEventListener("click", () => {
         const subject = encodeURIComponent("Solicitare informații - CDV Print")
         const body = encodeURIComponent(
-          "Bună ziua domnule Cojoacă,\n\nSunt interessat de serviciile CDV Print și aș dori să discut despre un proiect.\n\nVă mulțumesc!\n\nCu stimă,",
+          "Bună ziua,\n\nSunt interessat de serviciile CDV Print și aș dori să aflu mai multe detalii pentru un proiect.\n\nVă mulțumesc!\n\nCu stimă,",
         )
         const emailUrl = `mailto:doru.cojoaca@gmail.com?subject=${subject}&body=${body}`
         window.location.href = emailUrl
@@ -260,7 +260,7 @@ window.CDVPrint = {
 
   // Funcție pentru deschiderea WhatsApp cu mesaj personalizat
   openWhatsApp: (customMessage) => {
-    const message = encodeURIComponent(customMessage || "Salut! As dori mai multe informații.")
+    const message = encodeURIComponent(customMessage || "Salut! Aș dori mai multe informații.")
     const whatsappUrl = `https://wa.me/40723348280?text=${message}`
     window.open(whatsappUrl, "_blank")
   },
