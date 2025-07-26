@@ -15,22 +15,34 @@ class CDVPrintSite {
   // Actualizare automată a anului în footer
   updateCopyrightYear() {
     const currentYear = new Date().getFullYear()
-    const copyrightElements = document.querySelectorAll('[data-copyright-year]')
     
+    // Actualizează elementul cu ID-ul copyright-year
+    const copyrightElement = document.getElementById('copyright-year')
+    if (copyrightElement) {
+      copyrightElement.textContent = `© ${currentYear} CDV Print`
+    }
+
+    // Fallback pentru alte elemente care ar putea conține copyright
+    const copyrightElements = document.querySelectorAll('[data-copyright-year]')
     copyrightElements.forEach(element => {
-      element.textContent = element.textContent.replace(/© \d{4}/, `© ${currentYear}`)
+      element.textContent = `© ${currentYear} CDV Print`
     })
 
-    // Fallback pentru cazul în care nu există data-copyright-year
-    const footerText = document.querySelector('footer .text-gray-400')
-    if (footerText) {
-      const spans = footerText.querySelectorAll('span')
-      spans.forEach(span => {
-        if (span.textContent.includes('©')) {
-          span.textContent = `© ${currentYear} CDV Print`
-        }
-      })
-    }
+    // Actualizează și în alte pagini dacă există - versiune îmbunătățită
+    const allCopyrightSpans = document.querySelectorAll('footer span')
+    allCopyrightSpans.forEach(span => {
+      if (span.textContent.includes('©') && span.textContent.includes('CDV Print')) {
+        span.textContent = `© ${currentYear} CDV Print`
+      }
+    })
+
+    // Actualizează și alte posibile elemente cu copyright
+    const footerText = document.querySelectorAll('footer .text-gray-400 span, footer .text-gray-300 span')
+    footerText.forEach(element => {
+      if (element.textContent.includes('©') && element.textContent.includes('CDV Print')) {
+        element.textContent = `© ${currentYear} CDV Print`
+      }
+    })
   }
 
   // Gestionare meniu mobil
@@ -231,29 +243,6 @@ class CDVPrintSite {
       })
     }
   }
-
-  // // Funcție pentru afișarea unui toast message (opțional)
-  // showToast(message, type = "info") {
-  //   const toast = document.createElement("div")
-  //   toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white transition-all duration-300 transform translate-x-full ${
-  //     type === "success" ? "bg-green-500" : type === "error" ? "bg-red-500" : "bg-blue-500"
-  //   }`
-  //   toast.textContent = message
-  //   document.body.appendChild(toast)
-
-  //   // Animație de intrare
-  //   setTimeout(() => {
-  //     toast.classList.remove("translate-x-full")
-  //   }, 100)
-
-  //   // Eliminare automată după 3 secunde
-  //   setTimeout(() => {
-  //     toast.classList.add("translate-x-full")
-  //     setTimeout(() => {
-  //       document.body.removeChild(toast)
-  //     }, 300)
-  //   }, 3000)
-  // }
 }
 
 // Inițializare când DOM-ul este gata
@@ -291,5 +280,14 @@ window.CDVPrint = {
     )
     const emailUrl = `mailto:office@cdvprint.ro?cc=doru.cojoaca@gmail.com&subject=${emailSubject}&body=${emailBody}`
     window.location.href = emailUrl
+  },
+
+  // Funcție pentru actualizarea manuală a copyright-ului (dacă este nevoie)
+  updateCopyright: () => {
+    const currentYear = new Date().getFullYear()
+    const copyrightElement = document.getElementById('copyright-year')
+    if (copyrightElement) {
+      copyrightElement.textContent = `© ${currentYear} CDV Print`
+    }
   }
 }
