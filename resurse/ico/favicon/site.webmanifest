@@ -1,21 +1,25 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "CDV Print",
+  "short_name": "CDV Print",
+  "description": "Agenție de materiale publicitare și tipărire offset în București",
+  "lang": "ro",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
-      "src": "/resurse/imagini/favicon/web-app-manifest-192x192.png",
+      "src": "/resurse/ico/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/resurse/imagini/favicon/web-app-manifest-512x512.png",
+      "src": "/resurse/ico/favicon/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff",
   "display": "standalone"
 }

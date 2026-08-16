@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagină negăsită - CDV Print</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <link rel="icon" type="image/png" href="/resurse/ico/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/resurse/ico/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/resurse/ico/favicon/favicon.ico">
+
+    <!-- Căi absolute: pagina e servită de Apache pentru orice URL inexistent -->
+    <script src="/js/theme-init.js"></script>
+    <link rel="stylesheet" href="/resurse/css/style.css">
+</head>
+<body class="bg-white text-gray-800">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-center">
+                <a href="/" class="bg-primary-blue text-white px-4 py-2 rounded-lg font-bold text-xl">
+                    CDV Print
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-20">
+        <div class="max-w-xl mx-auto text-center">
+            <img src="/resurse/imagini/erori/interzis.png" alt=""
+                 width="200" height="200" class="w-32 h-32 mx-auto mb-8 object-contain">
+
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-custom mb-4">Pagina nu a fost găsită</h1>
+            <p class="text-lg text-gray-600 mb-8">
+                Adresa pe care ai accesat-o nu există sau a fost mutată.
+                Te putem ajuta să găsești ce cauți.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/" class="bg-primary-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-dark-blue transition-colors">
+                    Înapoi la pagina principală
+                </a>
+                <a href="/pagini/galerie.html" class="border-2 border-primary-blue text-primary-blue px-8 py-3 rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-colors">
+                    Vezi galeria
+                </a>
+                <a href="/pagini/contact.html" class="border-2 border-primary-blue text-primary-blue px-8 py-3 rounded-lg font-semibold hover:bg-primary-blue hover:text-white transition-colors">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gradient-to-r from-slate-800 to-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400"><span id="copyright-year"></span></p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/dark.js"></script>
+</body>
+</html>

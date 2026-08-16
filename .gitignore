@@ -1,0 +1,17 @@
+# Index de cod local (generat, specific mașinii)
+.tokensave/
+
+# Dependențe
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editoare
+.vscode/
+.idea/
+*.swp
+
+# Loguri
+npm-debug.log*
+yarn-error.log*

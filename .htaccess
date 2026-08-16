@@ -1,0 +1,110 @@
+# CDV Print - configurare Apache / cPanel
+# ============================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# ----------------------------------------------------------------------------
+# HTTPS
+# ----------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Forțează HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # Un singur host canonic (evită conținut duplicat pentru SEO)
+    RewriteCond %{HTTP_HOST} ^www\.cdvprint\.ro$ [NC]
+    RewriteRule ^(.*)$ https://cdvprint.ro/$1 [R=301,L]
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Header-e de securitate
+#
+# CSP-ul e strict ('self', fără 'unsafe-inline') pentru că nu mai există
+# scripturi sau stiluri inline: Tailwind se compilează local, iar inițializarea
+# temei stă în js/theme-init.js. Dacă adaugi vreodată un <script> inline sau un
+# atribut style="...", trebuie fie mutat în fișier, fie adăugat un hash aici.
+# ----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+
+    # HSTS. Activează-l după ce confirmi că HTTPS funcționează pe toate
+    # subdomeniile — altfel blochezi accesul pentru un an.
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Nu divulga versiunea de PHP
+    Header unset X-Powered-By
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Fișiere care nu trebuie servite public
+# ----------------------------------------------------------------------------
+<FilesMatch "(^\.|package(-lock)?\.json$|tailwind\.config\.js$|\.md$|\.sh$)">
+    Require all denied
+</FilesMatch>
+
+RedirectMatch 404 ^/(src|scripts|node_modules|\.git)(/|$)
+
+# ----------------------------------------------------------------------------
+# Compresie
+# ----------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Cache
+# ----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Imaginile au nume stabile; se schimbă rar
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+
+    # CSS/JS: o lună. Crește-l după ce adaugi hash în numele fișierelor.
+    ExpiresByType text/css                  "access plus 1 month"
+    ExpiresByType application/javascript    "access plus 1 month"
+
+    # HTML: mereu revalidat, ca modificările să apară imediat
+    ExpiresByType text/html                 "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(webp|png|jpe?g|svg|ico|woff2?)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------------
+# Tipuri MIME
+# ----------------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType application/manifest+json .webmanifest
+    AddType image/svg+xml .svg
+</IfModule>

@@ -1,0 +1,15 @@
+{
+  "name": "cdvprint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de prezentare CDV Print - agenție de materiale publicitare",
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i src/input.css -o resurse/css/style.css --minify",
+    "watch": "tailwindcss -i src/input.css -o resurse/css/style.css --watch",
+    "build:img": "bash scripts/build-images.sh"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

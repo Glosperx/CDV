@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /node_modules/
+
+Sitemap: https://cdvprint.ro/sitemap.xml

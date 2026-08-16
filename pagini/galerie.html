@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie - CDV Print</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#3b82f6',
-                        'light-blue': '#60a5fa',
-                        'dark-blue': '#2563eb',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Galerie Lucrări - CDV Print</title>
+    <meta name="description" content="Portofoliul CDV Print: cataloage, albume de artă, cutii personalizate, reviste și materiale publicitare tipărite offset pentru clienți din diverse domenii.">
+    <meta name="author" content="CDV Print">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <meta property="og:title" content="Galerie Lucrări - CDV Print">
+    <meta property="og:description" content="Portofoliul nostru de proiecte realizate: cataloage, albume, cutii, reviste și materiale publicitare.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cdvprint.ro/pagini/galerie.html">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:site_name" content="CDV Print">
+    <meta property="og:image" content="https://cdvprint.ro/resurse/imagini/og/cdvprint-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://cdvprint.ro/resurse/imagini/og/cdvprint-og.jpg">
+
+    <link rel="canonical" href="https://cdvprint.ro/pagini/galerie.html">
+
+    <link rel="icon" type="image/png" href="../resurse/ico/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="../resurse/ico/favicon/favicon.svg">
+    <link rel="shortcut icon" href="../resurse/ico/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../resurse/ico/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../resurse/ico/favicon/site.webmanifest">
+
+    <script src="../js/theme-init.js"></script>
+    <link rel="stylesheet" href="../resurse/css/style.css">
 </head>
 <body class="bg-white text-gray-800">
+    <a href="#continut" class="skip-link">Sari la conținut</a>
+
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4">
@@ -29,39 +44,54 @@
                         CDV Print
                     </a>
                 </div>
-                
+
                 <!-- Desktop Menu -->
-                <nav class="hidden md:flex space-x-8">
+                <nav class="hidden md:flex space-x-8" aria-label="Navigare principală">
                     <a href="../index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Acasă</a>
                     <a href="../index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Servicii</a>
-                    <!-- <a href="../index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Produse</a> -->
-                    <a href="galerie.html" class="text-primary-blue font-bold">Galerie</a>
+                    <a href="../index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Produse</a>
+                    <a href="galerie.html" class="text-primary-blue font-bold" aria-current="page">Galerie</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium">Contact</a>
                 </nav>
-                
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-primary-blue p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+
+                <div class="flex items-center gap-2 md:absolute md:right-0">
+                    <button id="dark-mode-toggle" type="button"
+                            class="text-gray-700 hover:text-primary-blue p-2 rounded-lg transition-colors"
+                            aria-label="Comută între tema deschisă și întunecată">
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-btn" type="button"
+                            class="md:hidden text-primary-blue p-2"
+                            aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            
+
             <!-- Mobile Menu -->
-            <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+            <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4" aria-label="Navigare mobilă">
                 <div class="flex flex-col space-y-3">
                     <a href="../index.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Acasă</a>
                     <a href="../index.html#servicii" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Servicii</a>
                     <a href="../index.html#produse" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Produse</a>
-                    <a href="galerie.html" class="text-primary-blue font-bold py-2 px-4 rounded bg-blue-50">Galerie</a>
+                    <a href="galerie.html" class="text-primary-blue font-bold py-2 px-4 rounded bg-blue-50" aria-current="page">Galerie</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary-blue transition-colors font-medium py-2 px-4 rounded hover:bg-gray-50">Contact</a>
                 </div>
             </nav>
         </div>
     </header>
 
+    <main id="continut">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-primary-blue to-light-blue text-white py-16">
+    <section class="bg-gradient-to-r from-dark-blue to-primary-blue text-white py-16">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Galeria Noastră</h1>
             <p class="text-xl max-w-2xl mx-auto">
@@ -73,212 +103,372 @@
     <!-- Galeria -->
     <section class="py-16">
         <div class="container mx-auto px-4">
+            <p class="sr-only">Apasă Enter pe o imagine pentru a o mări. Închide cu Escape.</p>
             <div id="gallery" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                
+
                 <!-- Casa Pariurilor -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/casa_pariurilor.png" alt="Casa Pariurilor - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/casa_pariurilor.webp"
+                            aria-label="Mărește imaginea: Casa Pariurilor - branding">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/casa_pariurilor.webp 400w,
+                                            ../resurse/imagini/poze/w800/casa_pariurilor.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/casa_pariurilor.png" alt="Casa Pariurilor - branding"
+                                 width="1500" height="2000" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- HerWatch -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/herwatch.png" alt="HerWatch - Design ceas" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/herwatch.webp"
+                            aria-label="Mărește imaginea: HerWatch - design ceas">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/herwatch.webp 400w,
+                                            ../resurse/imagini/poze/w800/herwatch.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/herwatch.png" alt="HerWatch - design ceas"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Awards -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/awards.png" alt="Awards - Album premium" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/awards.webp"
+                            aria-label="Mărește imaginea: Awards - album premium">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/awards.webp 400w,
+                                            ../resurse/imagini/poze/w800/awards.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/awards.png" alt="Awards - album premium"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Ceder -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/ceder.png" alt="Ceder - Ambalaj" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/ceder.webp"
+                            aria-label="Mărește imaginea: Ceder - ambalaj">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/ceder.webp 400w,
+                                            ../resurse/imagini/poze/w800/ceder.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/ceder.png" alt="Ceder - ambalaj"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Calendar -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/calendar.png" alt="Calendar personalizat" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/calendar.webp"
+                            aria-label="Mărește imaginea: Calendar personalizat">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/calendar.webp 400w,
+                                            ../resurse/imagini/poze/w800/calendar.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/calendar.png" alt="Calendar personalizat"
+                                 width="2000" height="1500" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Protecții Industriale -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/protectii_industriale.png" alt="Protecții industriale - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/protectii_industriale.webp"
+                            aria-label="Mărește imaginea: Protecții industriale - catalog">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/protectii_industriale.webp 400w,
+                                            ../resurse/imagini/poze/w800/protectii_industriale.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/protectii_industriale.png" alt="Protecții industriale - catalog"
+                                 width="2000" height="1500" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Manual -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/manual.png" alt="Manual tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/manual.webp"
+                            aria-label="Mărește imaginea: Manual tehnic">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/manual.webp 400w,
+                                            ../resurse/imagini/poze/w800/manual.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/manual.png" alt="Manual tehnic"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Market Watch -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/market_watch.png" alt="Market Watch - Revistă" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/market_watch.webp"
+                            aria-label="Mărește imaginea: Market Watch - revistă">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/market_watch.webp 400w,
+                                            ../resurse/imagini/poze/w800/market_watch.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/market_watch.png" alt="Market Watch - revistă"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Fermieri -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/fermieri.png" alt="Fermieri - Broșură" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/fermieri.webp"
+                            aria-label="Mărește imaginea: Fermieri - broșură">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/fermieri.webp 400w,
+                                            ../resurse/imagini/poze/w800/fermieri.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/fermieri.png" alt="Fermieri - broșură"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Frane -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/frane.png" alt="Frane - Catalog tehnic" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/frane.webp"
+                            aria-label="Mărește imaginea: Frâne - catalog tehnic">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/frane.webp 400w,
+                                            ../resurse/imagini/poze/w800/frane.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/frane.png" alt="Frâne - catalog tehnic"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Irigații -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/irigatii.png" alt="Irigații - Catalog" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/irigatii.webp"
+                            aria-label="Mărește imaginea: Irigații - catalog">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/irigatii.webp 400w,
+                                            ../resurse/imagini/poze/w800/irigatii.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/irigatii.png" alt="Irigații - catalog"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- CIJ -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/cij.png" alt="CIJ - Branding" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/cij.webp"
+                            aria-label="Mărește imaginea: CIJ - branding">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/cij.webp 400w,
+                                            ../resurse/imagini/poze/w800/cij.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/cij.png" alt="CIJ - branding"
+                                 width="1600" height="1200" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Dialog -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/dialog.png" alt="Dialog - Publicație" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/dialog.webp"
+                            aria-label="Mărește imaginea: Dialog - publicație">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/dialog.webp 400w,
+                                            ../resurse/imagini/poze/w800/dialog.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/dialog.png" alt="Dialog - publicație"
+                                 width="1600" height="1200" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Succes -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/succes.png" alt="Succes - Revistă business" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/succes.webp"
+                            aria-label="Mărește imaginea: Succes - revistă business">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/succes.webp 400w,
+                                            ../resurse/imagini/poze/w800/succes.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/succes.png" alt="Succes - revistă business"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- T&T -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/t&t.png" alt="T&T - Logo design" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/t-and-t.webp"
+                            aria-label="Mărește imaginea: T&amp;T - identitate vizuală">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/t-and-t.webp 400w,
+                                            ../resurse/imagini/poze/w800/t-and-t.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/t-and-t.png" alt="T&amp;T - identitate vizuală"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- A. Coman -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/a_coman.png" alt="A. Coman - Identitate vizuală" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/a_coman.webp"
+                            aria-label="Mărește imaginea: A. Coman - identitate vizuală">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/a_coman.webp 400w,
+                                            ../resurse/imagini/poze/w800/a_coman.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/a_coman.png" alt="A. Coman - identitate vizuală"
+                                 width="1600" height="1200" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Messi -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/messi.png" alt="Messi - Material promoțional" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/messi.webp"
+                            aria-label="Mărește imaginea: Material promoțional sportiv">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/messi.webp 400w,
+                                            ../resurse/imagini/poze/w800/messi.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/messi.png" alt="Material promoțional sportiv"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
                 <!-- Random -->
                 <div class="gallery-item">
-                    <div class="group cursor-pointer">
-                        <div class="overflow-hidden rounded-lg shadow-lg">
-                            <img src="../resurse/imagini/poze/random.png" alt="Random - Design creativ" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                    </div>
+                    <button type="button" class="group block w-full overflow-hidden rounded-lg shadow-lg"
+                            data-full="../resurse/imagini/poze/w1200/random.webp"
+                            aria-label="Mărește imaginea: Design creativ">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="../resurse/imagini/poze/w400/random.webp 400w,
+                                            ../resurse/imagini/poze/w800/random.webp 800w"
+                                    sizes="(min-width: 1200px) 282px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 2rem)">
+                            <img src="../resurse/imagini/poze/random.png" alt="Design creativ"
+                                 width="1200" height="1600" loading="lazy" decoding="async"
+                                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </picture>
+                    </button>
                 </div>
 
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Modal pentru vizualizare imagine -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-[60] hidden items-center justify-center p-4"
+         role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="relative max-w-4xl max-h-full">
-            <button id="closeModal" class="absolute -top-10 right-0 text-white text-2xl hover:text-gray-300">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="closeModal" type="button"
+                    class="absolute -top-12 right-0 text-white hover:text-gray-300 p-2"
+                    aria-label="Închide imaginea">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
-            <img id="modalImage" src="/placeholder.svg" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            <img id="modalImage" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg">
             <div id="modalInfo" class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-4 rounded-b-lg">
-                <h3 id="modalTitle" class="text-xl font-semibold"></h3>
-                <p id="modalDescription" class="text-gray-300"></p>
+                <h2 id="modalTitle" class="text-xl font-semibold"></h2>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark-blue text-white py-8">
+    <footer class="bg-gradient-to-r from-slate-800 to-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <div class="mb-4">
-                    <a href="../index.html" class="bg-white text-primary-blue px-6 py-3 rounded-lg font-bold text-2xl inline-block">
+                <div class="mb-6">
+                    <a href="../index.html" class="bg-primary-blue text-white px-6 py-3 rounded-xl font-bold text-2xl inline-block shadow-lg">
                         CDV Print
                     </a>
                 </div>
-                <p class="text-gray-300 mb-4">
-                    Agenție de materiale publicitare - Calitate superioară pentru proiectele dumneavoastră
+                <p class="text-gray-300 mb-6 text-lg">
+                    Materiale publicitare de calitate superioară pentru proiectele dumneavoastră
                 </p>
-                <div class="flex justify-center space-x-6 text-sm">
-                    <span>© 2025 CDV Print</span>
-                    <span>•</span>
-                    <span>Toate drepturile rezervate</span>
+                <div class="flex justify-center space-x-6 text-sm text-gray-400">
+                    <span id="copyright-year"></span>
+                </div>
+
+                <div class="mt-8 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="tel:+40723348280" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span>0723 348 280</span>
+                    </a>
+                    <a href="mailto:office@cdvprint.ro" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>office@cdvprint.ro</span>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript pentru galerie -->
     <script src="../js/main.js"></script>
     <script src="../js/gallery.js"></script>
     <script src="../js/dark.js"></script>
